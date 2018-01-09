@@ -9,14 +9,58 @@
 import UIKit
 
 class ViewController: UIViewController,iCarouselDataSource,iCarouselDelegate {
+    var quotesmenuIsVisible = false
+    @IBOutlet weak var ubeView: UIView!
+    @IBOutlet weak var viewTrailing: NSLayoutConstraint!
+    
+    @IBOutlet weak var viewLeading: NSLayoutConstraint!
+    
     @IBOutlet var viewCarousel: iCarousel!
+    @IBOutlet weak var menu: UIButton!
 var quotesImage = [UIImage]()
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
+        ubeView.isHidden = false
         viewCarousel.type = .invertedWheel
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        
+
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+ 
+    @IBAction func menuPressed(_ sender: Any) {
+   
+    
+    }
+    
+    
+    @IBAction func mButton_pressed(_ sender: Any) {
+        
+        ubeView.isHidden = false
+//        if ubeView.isHidden{
+//            viewLeading.constant = 150
+//            viewTrailing.constant = -150
+//            ubeView.isHidden = false
+//        } else {
+//            viewLeading.constant = 0
+//            viewTrailing.constant = 0
+//            quotesmenuIsVisible = true
+//        }
+//        
+//        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: {self.view.layoutIfNeeded()}) {
+//            (animationComplete) in
+//            print("Animation is complete")
+//        }
+
+    }
+   
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,6 +95,5 @@ var quotesImage = [UIImage]()
     return value
     }
     
-
-}
+   }
 
