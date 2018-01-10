@@ -22,7 +22,7 @@ var quotesImage = [UIImage]()
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        ubeView.isHidden = false
+        ubeView.isHidden = true
         viewCarousel.type = .invertedWheel
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -33,16 +33,33 @@ var quotesImage = [UIImage]()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
- 
-    @IBAction func menuPressed(_ sender: Any) {
-   
-    
+    @IBAction func menu_button_Pressed(_ sender: Any) {
+
+        if ubeView.isHidden{
+                        viewLeading.constant = 0
+                        viewTrailing.constant = 150
+                        ubeView.isHidden = false
+                    } else {
+                        viewLeading.constant = 0
+                        viewTrailing.constant = 0
+                        ubeView.isHidden = true
+                    }
+            
+                    UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseIn, animations: {self.view.layoutIfNeeded()}) {
+                        (animationComplete) in
+                        print("Animation is complete")
+                    }
+
+            
+        //        if ubeView.isHidden == true {
+//           ubeView.isHidden = false
+//        } else {
+//            ubeView.isHidden = true
+//        }
     }
+ 
     
-    
-    @IBAction func mButton_pressed(_ sender: Any) {
         
-        ubeView.isHidden = false
 //        if ubeView.isHidden{
 //            viewLeading.constant = 150
 //            viewTrailing.constant = -150
@@ -58,7 +75,7 @@ var quotesImage = [UIImage]()
 //            print("Animation is complete")
 //        }
 
-    }
+    
    
 
     
