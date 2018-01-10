@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D0C3D932006062600DF4D91 /* QuotesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0C3D922006062600DF4D91 /* QuotesObject.swift */; };
 		2D9AE7E62004B39400F5E479 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9AE7E52004B39400F5E479 /* iCarousel.m */; };
 		2DB9211120049CCE00CAF950 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB9211020049CCE00CAF950 /* AppDelegate.swift */; };
 		2DB9211320049CCE00CAF950 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB9211220049CCE00CAF950 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		0E0D4AA8E2D91B84295DA4B1 /* Pods-QuotesCollection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuotesCollection.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuotesCollection/Pods-QuotesCollection.debug.xcconfig"; sourceTree = "<group>"; };
+		2D0C3D922006062600DF4D91 /* QuotesObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotesObject.swift; sourceTree = "<group>"; };
 		2D9AE7E32004B39300F5E479 /* QuotesCollection-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuotesCollection-Bridging-Header.h"; sourceTree = "<group>"; };
 		2D9AE7E42004B39400F5E479 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		2D9AE7E52004B39400F5E479 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				2D9AE7E52004B39400F5E479 /* iCarousel.m */,
 				2DB9211020049CCE00CAF950 /* AppDelegate.swift */,
 				2DB9211220049CCE00CAF950 /* ViewController.swift */,
+				2D0C3D922006062600DF4D91 /* QuotesObject.swift */,
 				2DB9211420049CCE00CAF950 /* Main.storyboard */,
 				2DB9211720049CCE00CAF950 /* Assets.xcassets */,
 				2DB9211920049CCE00CAF950 /* LaunchScreen.storyboard */,
@@ -231,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D9AE7E62004B39400F5E479 /* iCarousel.m in Sources */,
+				2D0C3D932006062600DF4D91 /* QuotesObject.swift in Sources */,
 				2DB9211320049CCE00CAF950 /* ViewController.swift in Sources */,
 				2DB9211120049CCE00CAF950 /* AppDelegate.swift in Sources */,
 			);

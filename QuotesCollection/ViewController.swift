@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Alamofire
 class ViewController: UIViewController,iCarouselDataSource,iCarouselDelegate {
     var quotesmenuIsVisible = false
     @IBOutlet weak var ubeView: UIView!
@@ -111,6 +111,42 @@ var quotesImage = [UIImage]()
         }
     return value
     }
+    
+    func downloadData(){
+        
+        let quotesURL = URL(string: "https://www.forbes.com/forbesapi/thought/get.json?limit=5&start=10&stream=false")
+        Alamofire.request(quotesURL!).responseJSON { response in
+            let realmObj = Quotes()
+            let result = response.result
+            if let dict = result.value as? Dictionary<String, AnyObject> {
+                if let  secondDict = dict["thoughtList"] as? [Dictionary<String, AnyObject>]{
+                    if let quoteMessage = secondDict[0]["quote"] as? String {
+                        realmObj.message = quoteMessage
+                        
+                    }
+                    if let authorGrab = secondDict[0]["thoughtAuthor"] as? Dictionary<String,String> {
+                        if let authorName = authorGrab["name"] {
+                            realmObj.Author = authorName
+                        }
+                        
+                    }
+                    if let categoryGrab = secondDict[0]["thoughtThemes"] as? [Dictionary<String,String>] {
+                        if let categoryName = categoryGrab[0]["name"] {
+                            realmObj.category = categoryName
+                        }
+                        
+                    }
+                    
+                    
+                }
+            }
+            
+            realmObj.writeToRealm()
+        }
+        
+        
+    }
+
     
    }
 
