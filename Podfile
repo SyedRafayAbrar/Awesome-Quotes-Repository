@@ -6,7 +6,8 @@ target 'QuotesCollection' do
   use_frameworks!
 
 pod 'RealmSwift'
- pod 'Alamofire', '~> 4.0'
+pod 'Alamofire', '~> 4.0'
+pod 'SlideMenuControllerSwift'
   # Pods for QuotesCollection
 
 end
