@@ -8,6 +8,7 @@ target 'QuotesCollection' do
 pod 'RealmSwift'
 pod 'Alamofire', '~> 4.0'
 pod 'SlideMenuControllerSwift'
+pod 'AlamofireObjectMapper', '~> 5.0'
   # Pods for QuotesCollection
 
 end

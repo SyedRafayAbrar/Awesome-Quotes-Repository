@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import AlamofireObjectMapper
 
 class ViewController: UIViewController,iCarouselDataSource,iCarouselDelegate {
     
@@ -23,6 +24,8 @@ class ViewController: UIViewController,iCarouselDataSource,iCarouselDelegate {
     @IBOutlet weak var menu: UIButton!
     
     var quotesImage = [UIImage]()
+    var quotes = [QuoteItem]()
+    
     
     //DID LOAD
     
@@ -36,39 +39,10 @@ class ViewController: UIViewController,iCarouselDataSource,iCarouselDelegate {
     }
     
     @IBAction func menu_pressed(_ sender: Any) {
-        
         self.slideMenuController()?.openLeft()
     }
     
-    
-    //    @IBAction func menu_button_Pressed(_ sender: Any) {
-    //
-    //        if ubeView.isHidden{
-    //                        viewLeading.constant = 0
-    //                        viewTrailing.constant = 150
-    //                        ubeView.isHidden = false
-    //                    } else {
-    //                        viewLeading.constant = 0
-    //                        viewTrailing.constant = 0
-    //                        ubeView.isHidden = true
-    //                    }
-    //
-    //                    UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseIn, animations: {self.view.layoutIfNeeded()}) {
-    //                        (animationComplete) in
-    //                        print("Animation is complete")
-    //                    }
-    //
-    //
-    //
-    //    }
-    
-    
-    //    func setupSlideMenuController() {
-    //
-    //        self.slideMenuController()?.removeLeftGestures()
-    //
-    //    }
-    
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -106,6 +80,16 @@ class ViewController: UIViewController,iCarouselDataSource,iCarouselDelegate {
     }
     
     // DOWNLOADING DATA
+    
+    func getURL (url:String, param: [String:Any]){
+        Alamofire.request(url, parameters: param).responseObject { (response: DataResponse<QuoteItem>) in
+            
+            self.quotes.append(response.result.value!)
+            
+            print("now fetching data from query \(String(describing: response.result.value!.thought?.quoteFragment))")
+        
+        }
+    }
     
     func downloadData(){
         for _ in 0...4 {
@@ -194,6 +178,14 @@ class ViewController: UIViewController,iCarouselDataSource,iCarouselDelegate {
     
     
 }
+
+
+//extension ViewController:iCarouselDataSource{
+//    
+//    
+//    
+//}
+
 
 
 //END OF VIEW CONTROLLER
