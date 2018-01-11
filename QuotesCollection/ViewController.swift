@@ -10,7 +10,12 @@ import UIKit
 import Alamofire
 import AlamofireObjectMapper
 
-class ViewController: UIViewController,iCarouselDataSource,iCarouselDelegate {
+
+protocol ViewControllerDelegate : class {
+    func ViewControllerDidShowUp()
+}
+
+class ViewController: UIViewController, iCarouselDelegate {
     
     var q_Name:String = ""
     var a_Name:String = ""
@@ -27,6 +32,8 @@ class ViewController: UIViewController,iCarouselDataSource,iCarouselDelegate {
     var quotes = [QuoteItem]()
     
     
+   
+    
     //DID LOAD
     
     override func viewDidLoad() {
@@ -42,41 +49,17 @@ class ViewController: UIViewController,iCarouselDataSource,iCarouselDelegate {
         self.slideMenuController()?.openLeft()
     }
     
-
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        quotesImage = [#imageLiteral(resourceName: "q1"),#imageLiteral(resourceName: "q1"),#imageLiteral(resourceName: "q1")]
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
+    
+    
+   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    // CAROUSELS BEGIN
-    
-    func numberOfItems(in carousel: iCarousel) -> Int {
-        return quotesImage.count
-    }
-    
-    func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
-        let tempView = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 350))
-        
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 250, height: 350))
-        let newimg = quotesImage[index]
-        button.setImage(newimg, for: .normal)
-        tempView.addSubview(button)
-        return tempView
-    }
-    
-    func carousel(_ carousel: iCarousel, valueFor option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
-        if option == iCarouselOption.spacing{
-            return value*1.2
-        } else if option == iCarouselOption.arc{
-            return value*(-0.1)
-        }
-        return value
     }
     
     // DOWNLOADING DATA
@@ -85,9 +68,10 @@ class ViewController: UIViewController,iCarouselDataSource,iCarouselDelegate {
         Alamofire.request(url, parameters: param).responseObject { (response: DataResponse<QuoteItem>) in
             
             self.quotes.append(response.result.value!)
+            self.viewCarousel.reloadData()
             
             print("now fetching data from query \(String(describing: response.result.value!.thought?.quoteFragment))")
-        
+            
         }
     }
     
@@ -96,6 +80,7 @@ class ViewController: UIViewController,iCarouselDataSource,iCarouselDelegate {
             let randomValue = arc4random_uniform(11000)
             let quotesURL = URL(string: "https://www.forbes.com/forbesapi/thought/uri.json?enrich=false&query=\(randomValue)")
             
+            getURL(url: "https://www.forbes.com/forbesapi/thought/uri.json", param: ["enrich": "false", "query": randomValue])
             
             
             Alamofire.request(quotesURL!).responseJSON { response in
@@ -180,11 +165,31 @@ class ViewController: UIViewController,iCarouselDataSource,iCarouselDelegate {
 }
 
 
-//extension ViewController:iCarouselDataSource{
-//    
-//    
-//    
-//}
+extension ViewController:iCarouselDataSource{
+    
+    func numberOfItems(in carousel: iCarousel) -> Int {
+        return self.quotes.count
+    }
+    
+    func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
+        
+        let tempView = QuoteCard(frame: CGRect(x: 0, y: 0, width: 250, height: 350))
+        
+        tempView.setupCard(quote: (self.quotes[index].thought?.quote) ?? "Umer", author: (self.quotes[index].thought?.thoughtAuthor?.name) ?? "Umer", theme: (self.quotes[index].thought?.thoughtThemes?.first?.name) ?? "Umer")
+        
+        return tempView
+    }
+    
+    func carousel(_ carousel: iCarousel, valueFor option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
+        if option == iCarouselOption.spacing{
+            return value*1.2
+        } else if option == iCarouselOption.arc{
+            return value*(-0.1)
+        }
+        return value
+    }
+    
+}
 
 
 

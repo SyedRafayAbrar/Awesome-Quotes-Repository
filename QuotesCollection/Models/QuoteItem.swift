@@ -8,6 +8,7 @@
 import Foundation
 import ObjectMapper
 
+
 public final class QuoteItem: Mappable, NSCoding {
 
   // MARK: Declaration for string constants to be used to decode and also serialize.
