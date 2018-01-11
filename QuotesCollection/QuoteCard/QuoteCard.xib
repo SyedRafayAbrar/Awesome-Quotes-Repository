@@ -34,7 +34,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yfn-iJ-8hM">
-                    <rect key="frame" x="3.6666666666666572" y="-1.3333333333333144" width="428" height="547"/>
+                    <rect key="frame" x="1.3333333333333428" y="-4" width="433" height="552.33333333333337"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -68,13 +68,13 @@
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Innovation distinguishes between a leader and a follower. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ntb-XF-GEK">
-                    <rect key="frame" x="54.666666666666657" y="75.000000000000028" width="326" height="395.66666666666674"/>
+                    <rect key="frame" x="54.666666666666657" y="65.333333333333314" width="326" height="415"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="55"/>
                     <color key="textColor" red="0.30470624569999999" green="0.17850881809999999" blue="0.31893515589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mark Twain" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71a-5V-cQo">
-                    <rect key="frame" x="20.666666666666657" y="490.66666666666669" width="393" height="38.000000000000057"/>
+                    <rect key="frame" x="20.666666666666657" y="500.33333333333331" width="393" height="28.333333333333314"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -101,14 +101,14 @@
                 <constraint firstItem="71a-5V-cQo" firstAttribute="centerX" secondItem="szB-2A-aZP" secondAttribute="centerX" id="G9n-mu-QlJ"/>
                 <constraint firstItem="CVb-dU-VRW" firstAttribute="centerX" secondItem="szB-2A-aZP" secondAttribute="centerX" id="IBW-XJ-aXL"/>
                 <constraint firstItem="ntb-XF-GEK" firstAttribute="centerY" secondItem="szB-2A-aZP" secondAttribute="centerY" id="LGI-95-IPr"/>
-                <constraint firstItem="Yfn-iJ-8hM" firstAttribute="width" secondItem="szB-2A-aZP" secondAttribute="width" constant="-5" id="S5j-RF-IsT"/>
-                <constraint firstItem="Yfn-iJ-8hM" firstAttribute="height" secondItem="szB-2A-aZP" secondAttribute="height" constant="-5" id="XGp-Mk-Myj"/>
+                <constraint firstItem="Yfn-iJ-8hM" firstAttribute="width" secondItem="szB-2A-aZP" secondAttribute="width" id="S5j-RF-IsT"/>
+                <constraint firstItem="Yfn-iJ-8hM" firstAttribute="height" secondItem="szB-2A-aZP" secondAttribute="height" id="XGp-Mk-Myj"/>
                 <constraint firstItem="szB-2A-aZP" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" multiplier="0.97" id="XZq-4n-Zm2"/>
                 <constraint firstItem="szB-2A-aZP" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="dDQ-PT-ho0"/>
                 <constraint firstItem="CVb-dU-VRW" firstAttribute="top" secondItem="szB-2A-aZP" secondAttribute="top" constant="25" id="e4r-o9-CUH"/>
                 <constraint firstItem="szB-2A-aZP" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="eeJ-eq-GU0"/>
                 <constraint firstItem="ntb-XF-GEK" firstAttribute="centerX" secondItem="szB-2A-aZP" secondAttribute="centerX" id="gY9-JW-b2E"/>
-                <constraint firstItem="ntb-XF-GEK" firstAttribute="top" secondItem="CVb-dU-VRW" secondAttribute="bottom" multiplier="1.3" constant="20" id="huD-Tn-dnd"/>
+                <constraint firstItem="ntb-XF-GEK" firstAttribute="top" secondItem="CVb-dU-VRW" secondAttribute="bottom" multiplier="1.3" constant="10" id="huD-Tn-dnd"/>
                 <constraint firstItem="szB-2A-aZP" firstAttribute="width" secondItem="szB-2A-aZP" secondAttribute="height" multiplier="270:344" id="pWO-2c-o7r"/>
                 <constraint firstItem="71a-5V-cQo" firstAttribute="width" secondItem="szB-2A-aZP" secondAttribute="width" constant="-40" id="rST-q3-dh7"/>
                 <constraint firstItem="Yfn-iJ-8hM" firstAttribute="centerY" secondItem="ntb-XF-GEK" secondAttribute="centerY" id="uFQ-Vc-Kp6"/>

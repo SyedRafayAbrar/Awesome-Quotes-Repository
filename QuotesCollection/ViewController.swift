@@ -175,14 +175,14 @@ extension ViewController:iCarouselDataSource{
         
         let tempView = QuoteCard(frame: CGRect(x: 0, y: 0, width: 250, height: 350))
         
-        tempView.setupCard(quote: (self.quotes[index].thought?.quote) ?? "Umer", author: (self.quotes[index].thought?.thoughtAuthor?.name) ?? "Umer", theme: (self.quotes[index].thought?.thoughtThemes?.first?.name) ?? "Umer")
+        tempView.setupCard(quote: (self.quotes[index].thought?.quote) ?? "Umer", author: (self.quotes[index].thought?.thoughtAuthor?.name)?.capitalized ?? "Umer", theme: (self.quotes[index].thought?.thoughtThemes?.first?.name)?.capitalized ?? "Umer")
         
         return tempView
     }
     
     func carousel(_ carousel: iCarousel, valueFor option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
         if option == iCarouselOption.spacing{
-            return value*1.2
+            return value*1.25
         } else if option == iCarouselOption.arc{
             return value*(-0.1)
         }

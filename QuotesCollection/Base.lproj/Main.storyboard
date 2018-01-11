@@ -22,14 +22,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HTo-oy-WzR">
-                                <rect key="frame" x="-0.66666666666665719" y="0.0" width="375.33333333333326" height="812"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bryan-colosky-317764" translatesAutoresizingMaskIntoConstraints="NO" id="CuL-cj-maj">
+                                <rect key="frame" x="-1" y="0.0" width="375.33333333333331" height="812"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-1" translatesAutoresizingMaskIntoConstraints="NO" id="DUz-h8-jtH">
+                            <imageView userInteractionEnabled="NO" alpha="0.97999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-1" translatesAutoresizingMaskIntoConstraints="NO" id="DUz-h8-jtH">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                             </imageView>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="rW6-Kz-buf" customClass="iCarousel">
-                                <rect key="frame" x="0.0" y="162.33333333333334" width="375" height="487.33333333333326"/>
+                                <rect key="frame" x="0.0" y="161.99999999999997" width="375" height="487.33333333333326"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="VAs-yB-zeL"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="sFs-BO-Jn8"/>
@@ -57,20 +58,20 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="DUz-h8-jtH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="0q4-f0-aUi"/>
+                            <constraint firstItem="CuL-cj-maj" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="2C0-hE-4Mt"/>
                             <constraint firstItem="rW6-Kz-buf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8WN-Cf-efj"/>
+                            <constraint firstItem="CuL-cj-maj" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="BRx-UF-pU5"/>
                             <constraint firstItem="Yux-3t-D2L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="0.2" id="BVM-nC-tlH"/>
                             <constraint firstItem="rW6-Kz-buf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="EZC-Kc-hap"/>
-                            <constraint firstItem="HTo-oy-WzR" firstAttribute="height" secondItem="DUz-h8-jtH" secondAttribute="height" id="K1b-al-0Ns"/>
                             <constraint firstItem="OQM-aX-8Ds" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="1.8" id="PUe-T4-SWr"/>
+                            <constraint firstItem="CuL-cj-maj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="WAT-zA-fKz"/>
                             <constraint firstItem="rW6-Kz-buf" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.6" id="ZVL-Qp-CS0"/>
+                            <constraint firstItem="CuL-cj-maj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aRh-pV-ydT"/>
                             <constraint firstItem="DUz-h8-jtH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fdl-Rt-i4v"/>
                             <constraint firstItem="DUz-h8-jtH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fjl-SQ-xdZ"/>
                             <constraint firstItem="DUz-h8-jtH" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="gtL-BP-bCW"/>
                             <constraint firstItem="OQM-aX-8Ds" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.15" id="i87-82-0A7"/>
-                            <constraint firstItem="HTo-oy-WzR" firstAttribute="width" secondItem="DUz-h8-jtH" secondAttribute="width" id="nQ4-Ma-VV9"/>
                             <constraint firstItem="rW6-Kz-buf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qBE-b4-l6z"/>
-                            <constraint firstItem="HTo-oy-WzR" firstAttribute="centerY" secondItem="DUz-h8-jtH" secondAttribute="centerY" id="qPG-79-0MF"/>
-                            <constraint firstItem="HTo-oy-WzR" firstAttribute="centerX" secondItem="DUz-h8-jtH" secondAttribute="centerX" id="uUo-cj-5I5"/>
                             <constraint firstItem="Yux-3t-D2L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.15" id="yDE-ti-cqA"/>
                         </constraints>
                     </view>
@@ -151,6 +152,7 @@
         <image name="Rectangle 12 + Rectangle 14" width="37" height="40"/>
         <image name="bg-1" width="640" height="1136"/>
         <image name="bg3" width="236" height="418"/>
+        <image name="bryan-colosky-317764" width="500" height="752"/>
         <image name="menu_button" width="20" height="16"/>
     </resources>
 </document>
