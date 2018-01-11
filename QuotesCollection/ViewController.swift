@@ -8,75 +8,78 @@
 
 import UIKit
 import Alamofire
+
 class ViewController: UIViewController,iCarouselDataSource,iCarouselDelegate {
+    
     var q_Name:String = ""
     var a_Name:String = ""
     var c_Name:String = ""
+    
     var quotesmenuIsVisible = false
+    
     @IBOutlet weak var viewTrailing: NSLayoutConstraint!
-    
     @IBOutlet weak var viewLeading: NSLayoutConstraint!
-    
     @IBOutlet var viewCarousel: iCarousel!
     @IBOutlet weak var menu: UIButton!
-var quotesImage = [UIImage]()
-   
+    
+    var quotesImage = [UIImage]()
+    
     //DID LOAD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    downloadData()
+        downloadData()
         viewCarousel.type = .invertedWheel
-
+        
         
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     @IBAction func menu_pressed(_ sender: Any) {
         
-         self.slideMenuController()?.openLeft()
+        self.slideMenuController()?.openLeft()
     }
     
     
-//    @IBAction func menu_button_Pressed(_ sender: Any) {
-//
-//        if ubeView.isHidden{
-//                        viewLeading.constant = 0
-//                        viewTrailing.constant = 150
-//                        ubeView.isHidden = false
-//                    } else {
-//                        viewLeading.constant = 0
-//                        viewTrailing.constant = 0
-//                        ubeView.isHidden = true
-//                    }
-//            
-//                    UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseIn, animations: {self.view.layoutIfNeeded()}) {
-//                        (animationComplete) in
-//                        print("Animation is complete")
-//                    }
-//
-//            
-//
-//    }
- 
+    //    @IBAction func menu_button_Pressed(_ sender: Any) {
+    //
+    //        if ubeView.isHidden{
+    //                        viewLeading.constant = 0
+    //                        viewTrailing.constant = 150
+    //                        ubeView.isHidden = false
+    //                    } else {
+    //                        viewLeading.constant = 0
+    //                        viewTrailing.constant = 0
+    //                        ubeView.isHidden = true
+    //                    }
+    //
+    //                    UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseIn, animations: {self.view.layoutIfNeeded()}) {
+    //                        (animationComplete) in
+    //                        print("Animation is complete")
+    //                    }
+    //
+    //
+    //
+    //    }
     
-//    func setupSlideMenuController() {
-//        
-//        self.slideMenuController()?.removeLeftGestures()
-//        
-//    }
+    
+    //    func setupSlideMenuController() {
+    //
+    //        self.slideMenuController()?.removeLeftGestures()
+    //
+    //    }
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         quotesImage = [#imageLiteral(resourceName: "q1"),#imageLiteral(resourceName: "q1"),#imageLiteral(resourceName: "q1")]
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // CAROUSELS BEGIN
     
     func numberOfItems(in carousel: iCarousel) -> Int {
@@ -85,7 +88,7 @@ var quotesImage = [UIImage]()
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
         let tempView = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 350))
-            
+        
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 250, height: 350))
         let newimg = quotesImage[index]
         button.setImage(newimg, for: .normal)
@@ -99,99 +102,99 @@ var quotesImage = [UIImage]()
         } else if option == iCarouselOption.arc{
             return value*(-0.1)
         }
-    return value
+        return value
     }
     
     // DOWNLOADING DATA
     
     func downloadData(){
-for _ in 0...4 {
-        let randomValue = arc4random_uniform(11000)
-        let quotesURL = URL(string: "https://www.forbes.com/forbesapi/thought/uri.json?enrich=false&query=\(randomValue)")
-        
-        
-        
-        Alamofire.request(quotesURL!).responseJSON { response in
+        for _ in 0...4 {
+            let randomValue = arc4random_uniform(11000)
+            let quotesURL = URL(string: "https://www.forbes.com/forbesapi/thought/uri.json?enrich=false&query=\(randomValue)")
             
-            let realmObj = Quotes()
             
-            let result = response.result
             
-            if let dict = result.value as? Dictionary<String, AnyObject> {
+            Alamofire.request(quotesURL!).responseJSON { response in
                 
-                if let  secondDict = dict["thought"] as? Dictionary<String, AnyObject> {
+                let realmObj = Quotes()
+                
+                let result = response.result
+                
+                if let dict = result.value as? Dictionary<String, AnyObject> {
                     
-                    if let quoteMessage = secondDict["quote"] as? String {
+                    if let  secondDict = dict["thought"] as? Dictionary<String, AnyObject> {
                         
-                        realmObj.message = quoteMessage
-                        
-                        print(quoteMessage)
-                        
-                        
-                        
-                    }
-                    
-                    if let natural_id = secondDict["naturalId"] as? String {
-                        
-                        realmObj.natural_ID = natural_id
-                        
-                        print(natural_id)
-                        
-                        
-                        
-                    }
-
-                    
-                    if let authorGrab = secondDict["thoughtAuthor"] as? Dictionary<String,String> {
-                        
-                        if let authorName = authorGrab["name"]{
+                        if let quoteMessage = secondDict["quote"] as? String {
                             
-                            print(authorName)
+                            realmObj.message = quoteMessage
                             
-                            realmObj.Author = authorName
+                            print(quoteMessage)
+                            
+                            
+                            
+                        }
+                        
+                        if let natural_id = secondDict["naturalId"] as? String {
+                            
+                            realmObj.natural_ID = natural_id
+                            
+                            print(natural_id)
+                            
+                            
+                            
+                        }
+                        
+                        
+                        if let authorGrab = secondDict["thoughtAuthor"] as? Dictionary<String,String> {
+                            
+                            if let authorName = authorGrab["name"]{
+                                
+                                print(authorName)
+                                
+                                realmObj.Author = authorName
+                                
+                            }
+                            
+                            
+                            
+                        }
+                        
+                        if let categoryGrab = secondDict["thoughtThemes"] as? [Dictionary<String,String>] {
+                            
+                            if let categoryName = categoryGrab[0]["name"] {
+                                
+                                print(categoryName)
+                                
+                                realmObj.category = categoryName
+                                
+                            }
+                            
+                            
                             
                         }
                         
                         
                         
-                    }
-                    
-                    if let categoryGrab = secondDict["thoughtThemes"] as? [Dictionary<String,String>] {
-                        
-                        if let categoryName = categoryGrab[0]["name"] {
-                            
-                            print(categoryName)
-                            
-                                                       realmObj.category = categoryName
-                            
-                        }
-                        
                         
                         
                     }
-                    
-                    
-                    
-                    
                     
                 }
                 
+                
+                
+                realmObj.writeToRealm()
+                
             }
-            
-            
-            
-                        realmObj.writeToRealm()
-            
-        }
         }// For loop Ending
-
-    
+        
+        
     }//Download data function Ended
     
     
     
-    }
+}
 
-    
-    //END OF VIEW CONTROLLER
+
+//END OF VIEW CONTROLLER
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D0617D62007850D00261C07 /* QuoteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0617D52007850D00261C07 /* QuoteCard.swift */; };
+		0D0617D82007852100261C07 /* QuoteCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D0617D72007852100261C07 /* QuoteCard.xib */; };
 		2D0C3D932006062600DF4D91 /* QuotesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0C3D922006062600DF4D91 /* QuotesObject.swift */; };
 		2D79912120075A010092DB6C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D79912020075A010092DB6C /* Reachability.swift */; };
 		2D9AE7E62004B39400F5E479 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9AE7E52004B39400F5E479 /* iCarousel.m */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D0617D52007850D00261C07 /* QuoteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCard.swift; sourceTree = "<group>"; };
+		0D0617D72007852100261C07 /* QuoteCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteCard.xib; sourceTree = "<group>"; };
 		0E0D4AA8E2D91B84295DA4B1 /* Pods-QuotesCollection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuotesCollection.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuotesCollection/Pods-QuotesCollection.debug.xcconfig"; sourceTree = "<group>"; };
 		2D0C3D922006062600DF4D91 /* QuotesObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotesObject.swift; sourceTree = "<group>"; };
 		2D79912020075A010092DB6C /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 				2DB9211220049CCE00CAF950 /* ViewController.swift */,
 				2D0C3D922006062600DF4D91 /* QuotesObject.swift */,
 				2DB9211420049CCE00CAF950 /* Main.storyboard */,
+				0D0617D52007850D00261C07 /* QuoteCard.swift */,
+				0D0617D72007852100261C07 /* QuoteCard.xib */,
 				2D79912020075A010092DB6C /* Reachability.swift */,
 				2DCB78D4200740F500458646 /* MenuViewController.swift */,
 				2DB9211720049CCE00CAF950 /* Assets.xcassets */,
@@ -170,6 +176,7 @@
 			files = (
 				2DB9211B20049CCE00CAF950 /* LaunchScreen.storyboard in Resources */,
 				2DB9211820049CCE00CAF950 /* Assets.xcassets in Resources */,
+				0D0617D82007852100261C07 /* QuoteCard.xib in Resources */,
 				2DB9211620049CCE00CAF950 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +253,7 @@
 				2DCB78D5200740F500458646 /* MenuViewController.swift in Sources */,
 				2D0C3D932006062600DF4D91 /* QuotesObject.swift in Sources */,
 				2DB9211320049CCE00CAF950 /* ViewController.swift in Sources */,
+				0D0617D62007850D00261C07 /* QuoteCard.swift in Sources */,
 				2DB9211120049CCE00CAF950 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
