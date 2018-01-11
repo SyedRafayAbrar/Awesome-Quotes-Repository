@@ -9,6 +9,9 @@
 import UIKit
 import Alamofire
 class ViewController: UIViewController,iCarouselDataSource,iCarouselDelegate {
+    var q_Name:String = ""
+    var a_Name:String = ""
+    var c_Name:String = ""
     var quotesmenuIsVisible = false
     @IBOutlet weak var ubeView: UIView!
     @IBOutlet weak var viewTrailing: NSLayoutConstraint!
@@ -21,7 +24,7 @@ var quotesImage = [UIImage]()
    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+    downloadData()
         ubeView.isHidden = true
         viewCarousel.type = .invertedWheel
         
@@ -51,33 +54,11 @@ var quotesImage = [UIImage]()
                     }
 
             
-        //        if ubeView.isHidden == true {
-//           ubeView.isHidden = false
-//        } else {
-//            ubeView.isHidden = true
-//        }
+
     }
  
     
         
-//        if ubeView.isHidden{
-//            viewLeading.constant = 150
-//            viewTrailing.constant = -150
-//            ubeView.isHidden = false
-//        } else {
-//            viewLeading.constant = 0
-//            viewTrailing.constant = 0
-//            quotesmenuIsVisible = true
-//        }
-//        
-//        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: {self.view.layoutIfNeeded()}) {
-//            (animationComplete) in
-//            print("Animation is complete")
-//        }
-
-    
-   
-
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -89,6 +70,8 @@ var quotesImage = [UIImage]()
         // Dispose of any resources that can be recreated.
     }
 
+    // CAROUSELS BEGIN
+    
     func numberOfItems(in carousel: iCarousel) -> Int {
         return quotesImage.count
     }
@@ -97,7 +80,7 @@ var quotesImage = [UIImage]()
         let tempView = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 350))
             
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 250, height: 350))
-        var newimg = quotesImage[index]
+        let newimg = quotesImage[index]
         button.setImage(newimg, for: .normal)
         tempView.addSubview(button)
         return tempView
@@ -112,41 +95,93 @@ var quotesImage = [UIImage]()
     return value
     }
     
+    // DOWNLOADING DATA
+    
     func downloadData(){
+for _ in 0...4 {
+        let randomValue = arc4random_uniform(11000)
+        let quotesURL = URL(string: "https://www.forbes.com/forbesapi/thought/uri.json?enrich=false&query=\(randomValue)")
         
-        let quotesURL = URL(string: "https://www.forbes.com/forbesapi/thought/get.json?limit=5&start=10&stream=false")
+        
+        
         Alamofire.request(quotesURL!).responseJSON { response in
+            
             let realmObj = Quotes()
+            
             let result = response.result
+            
             if let dict = result.value as? Dictionary<String, AnyObject> {
-                if let  secondDict = dict["thoughtList"] as? [Dictionary<String, AnyObject>]{
-                    if let quoteMessage = secondDict[0]["quote"] as? String {
+                
+                if let  secondDict = dict["thought"] as? Dictionary<String, AnyObject> {
+                    
+                    if let quoteMessage = secondDict["quote"] as? String {
+                        
                         realmObj.message = quoteMessage
                         
+                        print(quoteMessage)
+                        
+                        
+                        
                     }
-                    if let authorGrab = secondDict[0]["thoughtAuthor"] as? Dictionary<String,String> {
-                        if let authorName = authorGrab["name"] {
+                    
+                    if let natural_id = secondDict["naturalId"] as? String {
+                        
+                        realmObj.natural_ID = natural_id
+                        
+                        print(natural_id)
+                        
+                        
+                        
+                    }
+
+                    
+                    if let authorGrab = secondDict["thoughtAuthor"] as? Dictionary<String,String> {
+                        
+                        if let authorName = authorGrab["name"]{
+                            
+                            print(authorName)
+                            
                             realmObj.Author = authorName
+                            
                         }
                         
+                        
+                        
                     }
-                    if let categoryGrab = secondDict[0]["thoughtThemes"] as? [Dictionary<String,String>] {
+                    
+                    if let categoryGrab = secondDict["thoughtThemes"] as? [Dictionary<String,String>] {
+                        
                         if let categoryName = categoryGrab[0]["name"] {
-                            realmObj.category = categoryName
+                            
+                            print(categoryName)
+                            
+                                                       realmObj.category = categoryName
+                            
                         }
                         
+                        
+                        
                     }
+                    
+                    
+                    
                     
                     
                 }
+                
             }
             
-            realmObj.writeToRealm()
+            
+            
+                        realmObj.writeToRealm()
+            
         }
-        
-        
+        }// For loop Ending
+
+    
+    }
     }
 
     
-   }
+    //END OF VIEW CONTROLLER
 
