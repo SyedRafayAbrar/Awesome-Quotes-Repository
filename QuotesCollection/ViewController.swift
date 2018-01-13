@@ -17,9 +17,12 @@ protocol ViewControllerDelegate : class {
 
 class ViewController: UIViewController, iCarouselDelegate {
     
+    
+    @IBOutlet weak var favouriteButton: UIButton!
     var q_Name:String = ""
     var a_Name:String = ""
     var c_Name:String = ""
+    var n_ID:String = ""
     
     var quotesmenuIsVisible = false
     
@@ -30,8 +33,8 @@ class ViewController: UIViewController, iCarouselDelegate {
     
     var quotesImage = [UIImage]()
     var quotes = [QuoteItem]()
-    
-    
+    var indexValue:Int?
+    var quoteObj:[Quotes] = []
    
     
     //DID LOAD
@@ -40,7 +43,7 @@ class ViewController: UIViewController, iCarouselDelegate {
         super.viewDidLoad()
         downloadData()
         viewCarousel.type = .invertedWheel
-        
+        retrieveData()
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -85,16 +88,14 @@ class ViewController: UIViewController, iCarouselDelegate {
             
             Alamofire.request(quotesURL!).responseJSON { response in
                 
-                let realmObj = Quotes()
-                
+                var q_obj  = Quotes()
                 let result = response.result
                 if let dict = result.value as? Dictionary<String, AnyObject> {
                     
                     if let  secondDict = dict["thought"] as? Dictionary<String, AnyObject> {
                         
                         if let quoteMessage = secondDict["quote"] as? String {
-                            
-                            realmObj.message = quoteMessage
+                            q_obj.message = quoteMessage
                             
                             print(quoteMessage)
                             
@@ -104,8 +105,7 @@ class ViewController: UIViewController, iCarouselDelegate {
                         
                         if let natural_id = secondDict["naturalId"] as? String {
                             
-                            realmObj.natural_ID = natural_id
-                            
+                            q_obj.natural_ID = natural_id
                             print(natural_id)
                             
                             
@@ -116,10 +116,9 @@ class ViewController: UIViewController, iCarouselDelegate {
                         if let authorGrab = secondDict["thoughtAuthor"] as? Dictionary<String,String> {
                             
                             if let authorName = authorGrab["name"]{
-                                
+                                q_obj.Author = authorName
                                 print(authorName)
                                 
-                                realmObj.Author = authorName
                                 
                             }
                             
@@ -130,10 +129,9 @@ class ViewController: UIViewController, iCarouselDelegate {
                         if let categoryGrab = secondDict["thoughtThemes"] as? [Dictionary<String,String>] {
                             
                             if let categoryName = categoryGrab[0]["name"] {
-                                
+                                q_obj.category = categoryName
                                 print(categoryName)
                                 
-                                realmObj.category = categoryName
                                 
                             }
                             
@@ -151,15 +149,34 @@ class ViewController: UIViewController, iCarouselDelegate {
                 
                 
                 
-                realmObj.writeToRealm()
-                
+                self.quoteObj.append(q_obj)
+                print(self.quoteObj)
             }
         }// For loop Ending
         
         
     }//Download data function Ended
     
+    @IBAction func selectFavourite(_ sender:Any){
+        
+        let realmObj = Quotes()
+        
+        realmObj.natural_ID = self.quoteObj[indexValue!].natural_ID
+        realmObj.Author = self.quoteObj[indexValue!].Author
+        realmObj.category = self.quoteObj[indexValue!].category
+
+        realmObj.message = self.quoteObj[indexValue!].message
+ realmObj.writeToRealm()
+        retrieveData()
+
+       
+    }
     
+ func retrieveData()
+ {
+    let quoteRecieved = uiRealm.objects(Quotes.self)
+    print(quoteRecieved)
+    }
     
 }
 
@@ -176,6 +193,7 @@ extension ViewController:iCarouselDataSource{
         
         tempView.setupCard(quote: (self.quotes[index].thought?.quote) ?? "Umer", author: (self.quotes[index].thought?.thoughtAuthor?.name)?.capitalized ?? "Umer", theme: (self.quotes[index].thought?.thoughtThemes?.first?.name)?.capitalized ?? "Umer")
         
+    
         return tempView
     }
     
@@ -187,6 +205,16 @@ extension ViewController:iCarouselDataSource{
         }
         return value
     }
+    
+    func carouselCurrentItemIndexDidChange(_ carousel: iCarousel) {
+        if let indxVal = carousel.currentItemIndex as? Int {
+       self.indexValue = indxVal
+            print(indxVal)
+            print("index 00000 \(self.indexValue!)")
+        }
+       
+    }
+ 
     
 }
 

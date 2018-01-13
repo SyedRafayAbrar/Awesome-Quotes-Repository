@@ -42,6 +42,14 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         return categoriesArray.count
     }
   
+    func numberOfSections(in tableView: UITableView) -> Int {
+       return 1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Categories"
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "Cell") as! UITableViewCell
         cell.textLabel?.text = categoriesArray[indexPath.row]
@@ -61,5 +69,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
     }
+    
+   
     
 }
