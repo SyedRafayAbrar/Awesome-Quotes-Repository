@@ -8,11 +8,18 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+    @IBOutlet weak var table: UITableView!
+    
+    var helper = Helper()
 
+    
+    var categoriesArray = ["Self","Best","Emotions","Life","Justice","Wealth","Laughter","AngerArt","Executvves","Power","Education","Wisdom","Greatness"]
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        table.backgroundColor = .clear
+        table.backgroundView = nil
         // Do any additional setup after loading the view.
     }
 
@@ -31,5 +38,28 @@ class MenuViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return categoriesArray.count
+    }
+  
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = table.dequeueReusableCell(withIdentifier: "Cell") as! UITableViewCell
+        cell.textLabel?.text = categoriesArray[indexPath.row]
+        cell.textLabel?.font = UIFont(name: "Avenir", size: 15)
+        cell.backgroundColor = .clear
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selectedCell = table.cellForRow(at: indexPath)
+        
+   helper.ItemName =  selectedCell?.textLabel?.text
+        
+ performSegue(withIdentifier: "CategorySegue", sender: indexPath.row)
+        
+        
+        
+    }
+    
 }

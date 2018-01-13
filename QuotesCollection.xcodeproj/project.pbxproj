@@ -23,6 +23,8 @@
 		2DB9211B20049CCE00CAF950 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DB9211920049CCE00CAF950 /* LaunchScreen.storyboard */; };
 		2DCB78D5200740F500458646 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCB78D4200740F500458646 /* MenuViewController.swift */; };
 		77A6377DCA74B4326A09872D /* Pods_QuotesCollection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0DEDBB10B9FF2662929292 /* Pods_QuotesCollection.framework */; };
+		C8BA2A0E2009D89500D9FA55 /* HelperFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA2A0D2009D89500D9FA55 /* HelperFile.swift */; };
+		C8BA2A102009DAEA00D9FA55 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA2A0F2009DAEA00D9FA55 /* CategoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		2DCB78D4200740F500458646 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4F0DEDBB10B9FF2662929292 /* Pods_QuotesCollection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuotesCollection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DE995D277B78487519E77C /* Pods-QuotesCollection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuotesCollection.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuotesCollection/Pods-QuotesCollection.release.xcconfig"; sourceTree = "<group>"; };
+		C8BA2A0D2009D89500D9FA55 /* HelperFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFile.swift; sourceTree = "<group>"; };
+		C8BA2A0F2009DAEA00D9FA55 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 				2DB9211020049CCE00CAF950 /* AppDelegate.swift */,
 				2DB9211220049CCE00CAF950 /* ViewController.swift */,
 				2D0C3D922006062600DF4D91 /* QuotesObject.swift */,
+				C8BA2A0D2009D89500D9FA55 /* HelperFile.swift */,
+				C8BA2A0F2009DAEA00D9FA55 /* CategoryViewController.swift */,
 				2DB9211420049CCE00CAF950 /* Main.storyboard */,
 				0DEDB0062007A4E500C1031A /* QuoteCard */,
 				2D79912020075A010092DB6C /* Reachability.swift */,
@@ -290,7 +296,9 @@
 				0D0617D62007850D00261C07 /* QuoteCard.swift in Sources */,
 				0DEDB0102007A75500C1031A /* QuoteItem.swift in Sources */,
 				2DB9211120049CCE00CAF950 /* AppDelegate.swift in Sources */,
+				C8BA2A102009DAEA00D9FA55 /* CategoryViewController.swift in Sources */,
 				0DEDB00E2007A75500C1031A /* ThoughtThemes.swift in Sources */,
+				C8BA2A0E2009D89500D9FA55 /* HelperFile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

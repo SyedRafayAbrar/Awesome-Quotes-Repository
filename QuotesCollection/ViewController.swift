@@ -88,7 +88,6 @@ class ViewController: UIViewController, iCarouselDelegate {
                 let realmObj = Quotes()
                 
                 let result = response.result
-                
                 if let dict = result.value as? Dictionary<String, AnyObject> {
                     
                     if let  secondDict = dict["thought"] as? Dictionary<String, AnyObject> {
