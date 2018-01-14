@@ -41,6 +41,17 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categoriesArray.count
     }
+<<<<<<< HEAD
+=======
+  
+    func numberOfSections(in tableView: UITableView) -> Int {
+       return 1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Categories"
+    }
+>>>>>>> 8a8f0a75f1e41ea2794500271879dfe158874a39
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "Cell") as! UITableViewCell
@@ -61,5 +72,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
     }
+    
+   
     
 }
