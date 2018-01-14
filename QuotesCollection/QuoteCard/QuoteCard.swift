@@ -14,6 +14,9 @@ class QuoteCard: UIView {
     @IBOutlet weak var quoteLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var themeLabel: UILabel!
+    @IBOutlet weak var authorImage: UIImageView!
+    
+    
     @IBOutlet var contentView: UIView!
     
     //     Only override draw() if you perform custom drawing.
@@ -52,6 +55,12 @@ class QuoteCard: UIView {
         self.quoteLabel.text = quote
         self.themeLabel.text = theme
         
+        
+    }
+    
+    func setupImage(image: Any){
+        
+        self.authorImage.image = image as? UIImage
         
     }
     

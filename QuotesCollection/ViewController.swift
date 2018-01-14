@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import AlamofireObjectMapper
-
+import Kingfisher
 
 protocol ViewControllerDelegate : class {
     func ViewControllerDidShowUp()
@@ -32,7 +32,7 @@ class ViewController: UIViewController, iCarouselDelegate {
     var quotes = [QuoteItem]()
     
     
-   
+    
     
     //DID LOAD
     
@@ -55,7 +55,7 @@ class ViewController: UIViewController, iCarouselDelegate {
     }
     
     
-   
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -67,16 +67,19 @@ class ViewController: UIViewController, iCarouselDelegate {
     func getURL (url:String, param: [String:Any]){
         Alamofire.request(url, parameters: param).responseObject { (response: DataResponse<QuoteItem>) in
             
-            self.quotes.append(response.result.value!)
-            self.viewCarousel.reloadData()
-            
-            print("now fetching data from query \(String(describing: response.result.value!.thought?.quoteFragment))")
-            
+            if(response.result.value?.thought?.thoughtAuthor?.image != nil){
+                
+                self.quotes.append(response.result.value!)
+                self.viewCarousel.reloadData()
+                
+                print("now fetching data from query \(String(describing: response.result.value!.thought?.quoteFragment))")
+                
+            }
         }
     }
     
     func downloadData(){
-        for _ in 0...4 {
+        for _ in 0...40 {
             let randomValue = arc4random_uniform(11000)
             let quotesURL = URL(string: "https://www.forbes.com/forbesapi/thought/uri.json?enrich=false&query=\(randomValue)")
             
@@ -136,23 +139,11 @@ class ViewController: UIViewController, iCarouselDelegate {
                                 realmObj.category = categoryName
                                 
                             }
-                            
-                            
-                            
                         }
-                        
-                        
-                        
-                        
-                        
                     }
                     
                 }
-                
-                
-                
                 realmObj.writeToRealm()
-                
             }
         }// For loop Ending
         
@@ -176,6 +167,24 @@ extension ViewController:iCarouselDataSource{
         
         tempView.setupCard(quote: (self.quotes[index].thought?.quote) ?? "Umer", author: (self.quotes[index].thought?.thoughtAuthor?.name)?.capitalized ?? "Umer", theme: (self.quotes[index].thought?.thoughtThemes?.first?.name)?.capitalized ?? "Umer")
         
+        if(self.quotes[index].thought?.thoughtAuthor?.image != nil){
+            
+            let s = self.quotes[index].thought?.thoughtAuthor?.image ?? ""
+            
+            let url = URL(string: "https://i.forbesimg.com/media/lists/quotebank/\(s)_100x100.jpg")
+            tempView.authorImage.kf.setImage(with: url)
+            
+            print("bhai ye nil nhi hain \((self.quotes[index].thought?.thoughtAuthor?.image ?? ""))")
+            
+//            let s = self.quotes[index].thought?.thoughtAuthor?.image ?? ""
+//
+//            Alamofire.request("https://i.forbesimg.com/media/lists/quotebank/\(s)_100x100.jpg").responseImage { response in
+//                debugPrint(response)
+//                if let image = response.result.value {
+//                    tempView.setupImage(image: image)
+//                }
+//            }
+        }
         return tempView
     }
     

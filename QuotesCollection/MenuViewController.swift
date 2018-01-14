@@ -12,36 +12,36 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var table: UITableView!
     
     var helper = Helper()
-
+    
     
     var categoriesArray = ["Self","Best","Emotions","Life","Justice","Wealth","Laughter","AngerArt","Executvves","Power","Education","Wisdom","Greatness"]
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         table.backgroundColor = .clear
         table.backgroundView = nil
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categoriesArray.count
     }
-  
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "Cell") as! UITableViewCell
         cell.textLabel?.text = categoriesArray[indexPath.row]
@@ -54,9 +54,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let selectedCell = table.cellForRow(at: indexPath)
         
-   helper.ItemName =  selectedCell?.textLabel?.text
+        helper.ItemName =  selectedCell?.textLabel?.text
         
- performSegue(withIdentifier: "CategorySegue", sender: indexPath.row)
+        performSegue(withIdentifier: "CategorySegue", sender: indexPath.row)
         
         
         

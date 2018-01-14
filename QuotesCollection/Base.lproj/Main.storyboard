@@ -107,9 +107,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375.33333333333326" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="WIZ-rE-eXx" kind="show" identifier="CategorySegue" id="Whg-Pr-4OF"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -187,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tCs-11-rk6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1533.5999999999999" y="873.39901477832518"/>
+            <point key="canvasLocation" x="1911" y="855"/>
         </scene>
     </scenes>
     <resources>

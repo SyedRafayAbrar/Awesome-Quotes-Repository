@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class CategoryViewController: UIViewController,iCarouselDelegate,iCarouselDataSource {
+class CategoryViewController: UIViewController,iCarouselDelegate, iCarouselDataSource {
     var catCard = [CategoryCard]()
 var helperClass = Helper()
     @IBOutlet weak var carousel: iCarousel!
@@ -107,3 +107,10 @@ carousel.type = .invertedWheel
     }// downloadData ending
 
 }
+
+//extension ViewController: iCarouselDataSource{
+//
+//
+//
+//}
+
