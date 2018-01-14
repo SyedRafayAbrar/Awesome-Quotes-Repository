@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import AlamofireObjectMapper
 import Kingfisher
+import RealmSwift
 
 protocol ViewControllerDelegate : class {
     func ViewControllerDidShowUp()
@@ -33,15 +34,15 @@ class ViewController: UIViewController, iCarouselDelegate {
     
     var quotesImage = [UIImage]()
     var quotes = [QuoteItem]()
-<<<<<<< HEAD
+//<<<<<<< HEAD
     
     
     
-=======
+//=======
     var indexValue:Int?
     var quoteObj:[Quotes] = []
    
->>>>>>> 8a8f0a75f1e41ea2794500271879dfe158874a39
+//>>>>>>> 8a8f0a75f1e41ea2794500271879dfe158874a39
     
     //DID LOAD
     
@@ -94,6 +95,7 @@ class ViewController: UIViewController, iCarouselDelegate {
             
             getURL(url: "https://www.forbes.com/forbesapi/thought/uri.json", param: ["enrich": "false", "query": randomValue])
             
+            let realmObj = Quotes()
             
             Alamofire.request(quotesURL!).responseJSON { response in
                 
@@ -147,15 +149,15 @@ class ViewController: UIViewController, iCarouselDelegate {
                     }
                     
                 }
-<<<<<<< HEAD
+//<<<<<<< HEAD
                 realmObj.writeToRealm()
-=======
+//=======
                 
                 
                 
                 self.quoteObj.append(q_obj)
                 print(self.quoteObj)
->>>>>>> 8a8f0a75f1e41ea2794500271879dfe158874a39
+//>>>>>>> 8a8f0a75f1e41ea2794500271879dfe158874a39
             }
         }// For loop Ending
         
@@ -198,7 +200,7 @@ extension ViewController:iCarouselDataSource{
         
         tempView.setupCard(quote: (self.quotes[index].thought?.quote) ?? "Umer", author: (self.quotes[index].thought?.thoughtAuthor?.name)?.capitalized ?? "Umer", theme: (self.quotes[index].thought?.thoughtThemes?.first?.name)?.capitalized ?? "Umer")
         
-<<<<<<< HEAD
+//<<<<<<< HEAD
         if(self.quotes[index].thought?.thoughtAuthor?.image != nil){
             
             let s = self.quotes[index].thought?.thoughtAuthor?.image ?? ""
@@ -217,9 +219,9 @@ extension ViewController:iCarouselDataSource{
 //                }
 //            }
         }
-=======
+//=======
     
->>>>>>> 8a8f0a75f1e41ea2794500271879dfe158874a39
+//>>>>>>> 8a8f0a75f1e41ea2794500271879dfe158874a39
         return tempView
     }
     
