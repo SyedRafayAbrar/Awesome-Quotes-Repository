@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let slideMenuController = SlideMenuController(mainViewController: mainVC, leftMenuViewController: menuVC)
         self.window?.rootViewController = slideMenuController
         self.window?.makeKeyAndVisible()
+        
 
         
         return true
@@ -52,6 +53,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func itemClicked(category:String){
+        //fill in the blanks
     }
 
 
