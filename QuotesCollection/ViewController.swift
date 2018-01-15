@@ -61,6 +61,9 @@ class ViewController: UIViewController, iCarouselDelegate {
         
     }
     
+    @IBAction func pressedHome(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     func addBannerViewToView(_ bannerView: GADBannerView) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bannerView)
@@ -183,24 +186,29 @@ extension ViewController:iCarouselDataSource{
         }
         
         //<<<<<<< HEAD
-        //        if(self.quotes[index].thought?.thoughtAuthor?.image != nil){
-        //
-        //            let s = self.quotes[index].thought?.thoughtAuthor?.image ?? ""
-        //
-        //            let url = URL(string: "https://i.forbesimg.com/media/lists/quotebank/\(s)_100x100.jpg")
-        //            tempView.authorImage.kf.setImage(with: url)
-        //
-        //            print("bhai ye nil nhi hain \((self.quotes[index].thought?.thoughtAuthor?.image ?? ""))")
-        //
-        ////            let s = self.quotes[index].thought?.thoughtAuthor?.image ?? ".
-        ////
-        ////            Alamofire.request("https://i.forbesimg.com/media/lists/quotebank/\(s)_100x100.jpg").responseImage { response in
-        ////                debugPrint(response)
-        ////                if let image = response.result.value {
-        ////                    tempView.setupImage(image: image)
-        ////                }
-        ////            }
-        //            }
+        if quotes.count != 0 {
+                if(self.quotes[index].thought?.thoughtAuthor?.image != nil){
+        
+                    let s = self.quotes[index].thought?.thoughtAuthor?.image ?? ""
+        
+                    let url = URL(string: "https://i.forbesimg.com/media/lists/quotebank/\(s)_100x100.jpg")
+                    tempView.authorImage.kf.setImage(with: url)
+        
+                    print("bhai ye nil nhi hain \((self.quotes[index].thought?.thoughtAuthor?.image ?? ""))")
+        
+                    }
+        } else {
+            
+            if(self.catWise[index].thoughtAuthor?.image != nil){
+                
+                let s = self.catWise[index].thoughtAuthor?.image ?? ""
+                
+                let url = URL(string: "https://i.forbesimg.com/media/lists/quotebank/\(s)_100x100.jpg")
+                tempView.authorImage.kf.setImage(with: url)
+                
+            }
+            
+        }
         //
         ////=======
         //

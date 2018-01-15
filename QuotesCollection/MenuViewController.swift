@@ -16,7 +16,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var text:String = ""
     
-    var categoriesArray = ["Self","Best","Emotions","Life","Justice","Wealth","Laughter","AngerArt","Executvves","Power","Education","Wisdom","Greatness"]
+    var categoriesArray = ["Self","Best","Emotions","Life","Justice","Wealth","Laughter","Anger","Art","Executives","Power","Education","Wisdom","Greatness","Gender","Criticism","Courage","Blessings","Trust","Tragedy","Sorrow"]
     override func viewDidLoad() {
         super.viewDidLoad()
         

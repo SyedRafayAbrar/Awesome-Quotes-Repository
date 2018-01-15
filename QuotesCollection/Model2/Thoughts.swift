@@ -30,7 +30,7 @@ public final class Thoughts: Mappable, NSCoding {
   public var naturalId: String?
   public var thoughtThemes: [ThoughtThem]?
   public var visible: Bool? = false
-  public var thoughtAuthor: ThoughtAuth?
+  public var thoughtAuthor: ThoughtAuthor?
   public var shortUri: String?
   public var sortField: Int?
 
@@ -82,7 +82,7 @@ public final class Thoughts: Mappable, NSCoding {
     self.naturalId = aDecoder.decodeObject(forKey: SerializationKeys.naturalId) as? String
     self.thoughtThemes = aDecoder.decodeObject(forKey: SerializationKeys.thoughtThemes) as? [ThoughtThem]
     self.visible = aDecoder.decodeBool(forKey: SerializationKeys.visible)
-    self.thoughtAuthor = aDecoder.decodeObject(forKey: SerializationKeys.thoughtAuthor) as? ThoughtAuth
+    self.thoughtAuthor = aDecoder.decodeObject(forKey: SerializationKeys.thoughtAuthor) as? ThoughtAuthor
     self.shortUri = aDecoder.decodeObject(forKey: SerializationKeys.shortUri) as? String
     self.sortField = aDecoder.decodeObject(forKey: SerializationKeys.sortField) as? Int
   }

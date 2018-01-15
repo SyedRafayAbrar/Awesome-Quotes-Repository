@@ -37,17 +37,16 @@
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yux-3t-D2L">
-                                <rect key="frame" x="27.666666666666671" y="50" width="20" height="22"/>
+                                <rect key="frame" x="27.666666666666671" y="60" width="20" height="22"/>
                                 <state key="normal" image="menu_button"/>
                                 <connections>
                                     <action selector="menu_pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GWl-Pz-Rhq"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2v-0F-zvh">
-                                <rect key="frame" x="109" y="52" width="155" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2v-0F-zvh">
+                                <rect key="frame" x="110" y="52" width="155" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="1" green="0.51818153303633019" blue="0.048908576261345482" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ruZ-lq-tvF" customClass="GADBannerView">
@@ -58,25 +57,42 @@
                                     <constraint firstAttribute="height" constant="50" id="fnj-GH-O0T"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVX-gC-Cwk">
+                                <rect key="frame" x="326.66666666666669" y="61" width="22" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="7gd-OQ-7fk"/>
+                                    <constraint firstAttribute="width" constant="22" id="X9X-hf-zAu"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="home_icon"/>
+                                <connections>
+                                    <action selector="pressedHome:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d5A-sj-ogN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="DUz-h8-jtH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="0q4-f0-aUi"/>
                             <constraint firstItem="CuL-cj-maj" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="2C0-hE-4Mt"/>
+                            <constraint firstItem="O2v-0F-zvh" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" constant="-791" id="3Ta-Xh-VEA"/>
                             <constraint firstItem="ruZ-lq-tvF" firstAttribute="centerX" secondItem="DUz-h8-jtH" secondAttribute="centerX" id="89I-Qq-Qnv"/>
                             <constraint firstItem="rW6-Kz-buf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8WN-Cf-efj"/>
                             <constraint firstItem="CuL-cj-maj" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="BRx-UF-pU5"/>
                             <constraint firstItem="Yux-3t-D2L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="0.2" id="BVM-nC-tlH"/>
                             <constraint firstItem="rW6-Kz-buf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="EZC-Kc-hap"/>
+                            <constraint firstItem="sVX-gC-Cwk" firstAttribute="centerX" secondItem="DUz-h8-jtH" secondAttribute="centerX" multiplier="1.8" id="KCr-Oq-nfP"/>
+                            <constraint firstItem="O2v-0F-zvh" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="-220" id="SRb-Qv-7Bj"/>
                             <constraint firstItem="CuL-cj-maj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="WAT-zA-fKz"/>
+                            <constraint firstItem="O2v-0F-zvh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-343.5" id="Y7P-v3-6dK"/>
                             <constraint firstItem="rW6-Kz-buf" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.6" id="ZVL-Qp-CS0"/>
                             <constraint firstItem="CuL-cj-maj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aRh-pV-ydT"/>
+                            <constraint firstItem="O2v-0F-zvh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bcc-mf-a8h"/>
+                            <constraint firstItem="sVX-gC-Cwk" firstAttribute="centerY" secondItem="DUz-h8-jtH" secondAttribute="centerY" multiplier="0.175" id="c94-1U-s7I"/>
                             <constraint firstItem="ruZ-lq-tvF" firstAttribute="bottom" secondItem="DUz-h8-jtH" secondAttribute="bottom" multiplier="0.95" id="djZ-rK-wVS"/>
                             <constraint firstItem="DUz-h8-jtH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fdl-Rt-i4v"/>
                             <constraint firstItem="DUz-h8-jtH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fjl-SQ-xdZ"/>
                             <constraint firstItem="DUz-h8-jtH" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="gtL-BP-bCW"/>
                             <constraint firstItem="rW6-Kz-buf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qBE-b4-l6z"/>
-                            <constraint firstItem="Yux-3t-D2L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.15" id="yDE-ti-cqA"/>
+                            <constraint firstItem="Yux-3t-D2L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.175" id="yDE-ti-cqA"/>
                         </constraints>
                     </view>
                     <connections>
@@ -196,6 +212,7 @@
     <resources>
         <image name="bg-1" width="640" height="1136"/>
         <image name="bryan-colosky-317764" width="500" height="752"/>
+        <image name="home_icon" width="15" height="13"/>
         <image name="menu_button" width="20" height="16"/>
     </resources>
 </document>
