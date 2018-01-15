@@ -11,8 +11,7 @@ import UIKit
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     @IBOutlet weak var table: UITableView!
     
-    var helper = Helper()
-    
+    var text:String = ""
     
     var categoriesArray = ["Self","Best","Emotions","Life","Justice","Wealth","Laughter","AngerArt","Executvves","Power","Education","Wisdom","Greatness"]
     override func viewDidLoad() {
@@ -62,15 +61,20 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let selectedCell = table.cellForRow(at: indexPath)
-        
-        helper.ItemName =  selectedCell?.textLabel?.text
-        
-        performSegue(withIdentifier: "CategorySegue", sender: indexPath.row)
+     performSegue(withIdentifier: "home", sender: self)
         
         
         
+    }
+//    Segue Recieved
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "home" {
+            if let indexPath = self.table.indexPathForSelectedRow {
+                let controller = segue.destination as! ViewController
+                controller.categoryRecieved = categoriesArray[indexPath.row]
+                
+            }
+        }
     }
     
    

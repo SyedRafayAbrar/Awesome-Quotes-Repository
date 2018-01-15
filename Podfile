@@ -10,6 +10,10 @@ pod 'Alamofire', '~> 4.0'
 pod 'SlideMenuControllerSwift'
 pod 'AlamofireObjectMapper', '~> 5.0'
 pod 'Kingfisher', '~> 4.0'
+pod 'SwiftyJSON'
+
+
+
   # Pods for QuotesCollection
 
 end

@@ -57,6 +57,13 @@
                                     <action selector="selectFavourite:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kz9-X9-cYw"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2v-0F-zvh">
+                                <rect key="frame" x="109" y="52" width="155" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -79,6 +86,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="currentLabel" destination="O2v-0F-zvh" id="Nu4-ah-wWm"/>
                         <outlet property="menu" destination="Yux-3t-D2L" id="xr2-Ye-K9Z"/>
                         <outlet property="viewCarousel" destination="rW6-Kz-buf" id="MVx-cW-Yze"/>
                     </connections>
@@ -129,6 +137,7 @@
                     </view>
                     <connections>
                         <outlet property="table" destination="Vva-ng-EWy" id="N5N-aW-xkw"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="home" id="qEZ-Wz-JCi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2lD-qy-lEO" userLabel="First Responder" sceneMemberID="firstResponder"/>

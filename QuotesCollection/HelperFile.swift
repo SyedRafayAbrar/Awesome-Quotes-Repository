@@ -8,14 +8,11 @@
 
 import Foundation
 import Alamofire
-class Helper{
-    var ItemName:String?
 
-}
     
-class CategoryCard:NSObject{
+class CategoryCard: NSObject {
     var author:String?
-    var quote:String?
+    var message:String?
     var theme:String?
     
   
