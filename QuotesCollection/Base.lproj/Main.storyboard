@@ -13,7 +13,7 @@
         <!--Data Source-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="homeViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="QuotesCollection" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="QuotesCollection" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -43,17 +43,6 @@
                                     <action selector="menu_pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GWl-Pz-Rhq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQM-aX-8Ds">
-                                <rect key="frame" x="327.66666666666669" y="50" width="20" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="Glh-uv-uG2"/>
-                                    <constraint firstAttribute="height" constant="22" id="nes-BV-Ia8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" image="heart_deselected_icon">
-                                    <color key="titleShadowColor" red="0.98307443300144104" green="0.99432541665443885" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2v-0F-zvh">
                                 <rect key="frame" x="109" y="52" width="155" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -61,28 +50,37 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ruZ-lq-tvF" customClass="GADBannerView">
+                                <rect key="frame" x="27" y="721.33333333333337" width="320" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="FIp-pJ-YHv"/>
+                                    <constraint firstAttribute="height" constant="50" id="fnj-GH-O0T"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="DUz-h8-jtH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="0q4-f0-aUi"/>
                             <constraint firstItem="CuL-cj-maj" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="2C0-hE-4Mt"/>
+                            <constraint firstItem="ruZ-lq-tvF" firstAttribute="centerX" secondItem="DUz-h8-jtH" secondAttribute="centerX" id="89I-Qq-Qnv"/>
                             <constraint firstItem="rW6-Kz-buf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8WN-Cf-efj"/>
                             <constraint firstItem="CuL-cj-maj" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="BRx-UF-pU5"/>
                             <constraint firstItem="Yux-3t-D2L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="0.2" id="BVM-nC-tlH"/>
                             <constraint firstItem="rW6-Kz-buf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="EZC-Kc-hap"/>
-                            <constraint firstItem="OQM-aX-8Ds" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="1.8" id="PUe-T4-SWr"/>
                             <constraint firstItem="CuL-cj-maj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="WAT-zA-fKz"/>
                             <constraint firstItem="rW6-Kz-buf" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.6" id="ZVL-Qp-CS0"/>
                             <constraint firstItem="CuL-cj-maj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aRh-pV-ydT"/>
+                            <constraint firstItem="ruZ-lq-tvF" firstAttribute="bottom" secondItem="DUz-h8-jtH" secondAttribute="bottom" multiplier="0.95" id="djZ-rK-wVS"/>
                             <constraint firstItem="DUz-h8-jtH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fdl-Rt-i4v"/>
                             <constraint firstItem="DUz-h8-jtH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fjl-SQ-xdZ"/>
                             <constraint firstItem="DUz-h8-jtH" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="gtL-BP-bCW"/>
-                            <constraint firstItem="OQM-aX-8Ds" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.15" id="i87-82-0A7"/>
                             <constraint firstItem="rW6-Kz-buf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qBE-b4-l6z"/>
                             <constraint firstItem="Yux-3t-D2L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.15" id="yDE-ti-cqA"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bannerView" destination="ruZ-lq-tvF" id="jER-2e-mzM"/>
                         <outlet property="currentLabel" destination="O2v-0F-zvh" id="Nu4-ah-wWm"/>
                         <outlet property="menu" destination="Yux-3t-D2L" id="xr2-Ye-K9Z"/>
                         <outlet property="viewCarousel" destination="rW6-Kz-buf" id="MVx-cW-Yze"/>
@@ -95,7 +93,7 @@
         <!--Menu View Controller-->
         <scene sceneID="KmB-pM-06R">
             <objects>
-                <viewController storyboardIdentifier="MenuViewController" id="Lmh-tZ-wPV" customClass="MenuViewController" customModule="QuotesCollection" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Lmh-tZ-wPV" customClass="MenuViewController" customModule="QuotesCollection" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="via-r4-Jax"/>
                         <viewControllerLayoutGuide type="bottom" id="9r1-HZ-PzV"/>
@@ -198,7 +196,6 @@
     <resources>
         <image name="bg-1" width="640" height="1136"/>
         <image name="bryan-colosky-317764" width="500" height="752"/>
-        <image name="heart_deselected_icon" width="22" height="20"/>
         <image name="menu_button" width="20" height="16"/>
     </resources>
 </document>

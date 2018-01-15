@@ -9,6 +9,7 @@
 import UIKit
 
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+    
     @IBOutlet weak var table: UITableView!
     
 //    var listener:ClickDelegate?
@@ -51,11 +52,19 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//     performSegue(withIdentifier: "home", sender: self)
+
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainVC = storyboard.instantiateViewController(withIdentifier: "homeViewController") as! ViewController
+        mainVC.categoryRecieved = categoriesArray[indexPath.row]
+        show(mainVC, sender: self)
+        //     performSegue(withIdentifier: "home", sender: self)
         
 //        if(self.listener != nil){
 //            self.listener?.clickItem(category: categoriesArray[indexPath.row])
 //        }
+        
+//        self.slideMenuController()
         
         
     }
