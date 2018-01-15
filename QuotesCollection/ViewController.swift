@@ -38,7 +38,7 @@ class ViewController: UIViewController, iCarouselDelegate {
     
     var quotesImage = [UIImage]()
     var quotes = [QuoteItem]()
-    var catWise=[BaseClass]()
+    var catWise=[Thoughts]()
     
     //DID LOAD
     
@@ -107,7 +107,7 @@ class ViewController: UIViewController, iCarouselDelegate {
     func getURL_s(url:String, param: [String:Any]){
         Alamofire.request(url, parameters: param).responseObject { (response: DataResponse<BaseClass>) in
             
-            self.catWise.append(response.result.value!)
+            self.catWise = (response.result.value!.thoughtStream?.thoughts)!
             self.viewCarousel.reloadData()
             
             print("now fetching data from query \(String(describing: response.result.value!.thoughtStream?.thoughts?.first?.quote))")
@@ -139,15 +139,14 @@ class ViewController: UIViewController, iCarouselDelegate {
                 
                         }// For loop Ending
         } else {
-            for _ in 0...49 {
-                let randomValue = arc4random_uniform(50)
+                let randomValue = arc4random_uniform(10)
                 
                 
-                getURL_s(url: "https://www.forbes.com/forbesapi/thought/get.json?", param: ["limit":100,"meta":true,"start":randomValue, "stream":true,"themeuri":"\(self.categoryRecieved.lowercased())"])
+                getURL_s(url: "https://www.forbes.com/forbesapi/thought/get.json?", param: ["limit":200,"meta":true,"start":randomValue, "stream":true,"themeuri":"\(self.categoryRecieved.lowercased())"])
                 print("++++Else++")
                 
                 
-            }
+            
         }
         
     }//Download data function Ended
@@ -180,7 +179,7 @@ extension ViewController:iCarouselDataSource{
         if self.categoryRecieved == "" {
             tempView.setupCard(quote: (self.quotes[index].thought?.quote) ?? "Umer", author: (self.quotes[index].thought?.thoughtAuthor?.name)?.capitalized ?? "Umer", theme: (self.quotes[index].thought?.thoughtThemes?.first?.name)?.capitalized ?? "Umer")
         } else {
-            tempView.setupCard(quote: (self.catWise[index].thoughtStream?.thoughts?.first?.quote) ?? "Rafay", author: (self.catWise[index].thoughtStream?.thoughts?.first?.thoughtAuthor?.name) ?? "Rafay", theme: (self.catWise[index].thoughtStream?.thoughts?.first?.thoughtThemes?.first?.name) ?? "Rafay")
+            tempView.setupCard(quote: (self.catWise[index].quote) ?? "Rafay", author: (self.catWise[index].thoughtAuthor?.name) ?? "Rafay", theme: (self.catWise[index].thoughtThemes?.first?.name) ?? "Rafay")
         }
         
         //<<<<<<< HEAD
