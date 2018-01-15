@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  QuotesCollection
-//
-//  Created by Syed Rafay on 1/9/18.
-//  Copyright © 2018 Syed Rafay. All rights reserved.
-//
 
 import UIKit
 import Alamofire
@@ -34,17 +27,9 @@ class ViewController: UIViewController, iCarouselDelegate {
     
     var quotesImage = [UIImage]()
     var quotes = [QuoteItem]()
-//<<<<<<< HEAD
-    
-    
-    
-//=======
+
     var indexValue:Int?
     var quoteObj:[Quotes] = []
-   
-//>>>>>>> 8a8f0a75f1e41ea2794500271879dfe158874a39
-    
-    //DID LOAD
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,7 +84,7 @@ class ViewController: UIViewController, iCarouselDelegate {
             
             Alamofire.request(quotesURL!).responseJSON { response in
                 
-                var q_obj  = Quotes()
+                let q_obj  = Quotes()
                 let result = response.result
                 if let dict = result.value as? Dictionary<String, AnyObject> {
                     
@@ -109,9 +94,7 @@ class ViewController: UIViewController, iCarouselDelegate {
                             q_obj.message = quoteMessage
                             
                             print(quoteMessage)
-                            
-                            
-                            
+
                         }
                         
                         if let natural_id = secondDict["naturalId"] as? String {
@@ -119,22 +102,16 @@ class ViewController: UIViewController, iCarouselDelegate {
                             q_obj.natural_ID = natural_id
                             print(natural_id)
                             
-                            
-                            
                         }
-                        
-                        
+
                         if let authorGrab = secondDict["thoughtAuthor"] as? Dictionary<String,String> {
                             
                             if let authorName = authorGrab["name"]{
                                 q_obj.Author = authorName
                                 print(authorName)
                                 
-                                
                             }
-                            
-                            
-                            
+
                         }
                         
                         if let categoryGrab = secondDict["thoughtThemes"] as? [Dictionary<String,String>] {
@@ -142,22 +119,15 @@ class ViewController: UIViewController, iCarouselDelegate {
                             if let categoryName = categoryGrab[0]["name"] {
                                 q_obj.category = categoryName
                                 print(categoryName)
-                                
-                                
+                         
                             }
                         }
                     }
-                    
                 }
-//<<<<<<< HEAD
                 realmObj.writeToRealm()
-//=======
-                
-                
                 
                 self.quoteObj.append(q_obj)
                 print(self.quoteObj)
-//>>>>>>> 8a8f0a75f1e41ea2794500271879dfe158874a39
             }
         }// For loop Ending
         
@@ -171,18 +141,18 @@ class ViewController: UIViewController, iCarouselDelegate {
         realmObj.natural_ID = self.quoteObj[indexValue!].natural_ID
         realmObj.Author = self.quoteObj[indexValue!].Author
         realmObj.category = self.quoteObj[indexValue!].category
-
+        
         realmObj.message = self.quoteObj[indexValue!].message
- realmObj.writeToRealm()
+        realmObj.writeToRealm()
         retrieveData()
-
-       
+        
+        
     }
     
- func retrieveData()
- {
-    let quoteRecieved = uiRealm.objects(Quotes.self)
-    print(quoteRecieved)
+    func retrieveData()
+    {
+        let quoteRecieved = uiRealm.objects(Quotes.self)
+        print(quoteRecieved)
     }
     
 }
@@ -200,7 +170,7 @@ extension ViewController:iCarouselDataSource{
         
         tempView.setupCard(quote: (self.quotes[index].thought?.quote) ?? "Umer", author: (self.quotes[index].thought?.thoughtAuthor?.name)?.capitalized ?? "Umer", theme: (self.quotes[index].thought?.thoughtThemes?.first?.name)?.capitalized ?? "Umer")
         
-//<<<<<<< HEAD
+        //<<<<<<< HEAD
         if(self.quotes[index].thought?.thoughtAuthor?.image != nil){
             
             let s = self.quotes[index].thought?.thoughtAuthor?.image ?? ""
@@ -210,18 +180,8 @@ extension ViewController:iCarouselDataSource{
             
             print("bhai ye nil nhi hain \((self.quotes[index].thought?.thoughtAuthor?.image ?? ""))")
             
-//            let s = self.quotes[index].thought?.thoughtAuthor?.image ?? ""
-//
-//            Alamofire.request("https://i.forbesimg.com/media/lists/quotebank/\(s)_100x100.jpg").responseImage { response in
-//                debugPrint(response)
-//                if let image = response.result.value {
-//                    tempView.setupImage(image: image)
-//                }
-//            }
         }
-//=======
-    
-//>>>>>>> 8a8f0a75f1e41ea2794500271879dfe158874a39
+
         return tempView
     }
     
@@ -236,17 +196,14 @@ extension ViewController:iCarouselDataSource{
     
     func carouselCurrentItemIndexDidChange(_ carousel: iCarousel) {
         if let indxVal = carousel.currentItemIndex as? Int {
-       self.indexValue = indxVal
+            self.indexValue = indxVal
             print(indxVal)
             print("index 00000 \(self.indexValue!)")
         }
-       
+        
     }
- 
-    
+
 }
 
 
-
-//END OF VIEW CONTROLLER
 
