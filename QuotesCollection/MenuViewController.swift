@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol MenuViewControllerDelegate : class {
+    func clickItem(category: String)
+}
+
+
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     @IBOutlet weak var table: UITableView!
+    weak var delegate : MenuViewControllerDelegate?
     
-//    var listener:ClickDelegate?
+    //    var listener:ClickDelegate?
     
     var text:String = ""
     
@@ -35,9 +41,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categoriesArray.count
     }
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-       return 1
+        return 1
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -45,8 +51,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = table.dequeueReusableCell(withIdentifier: "Cell") as! UITableViewCell
-       cell.textLabel?.textColor = UIColor.brown
+        let cell = table.dequeueReusableCell(withIdentifier: "Cell")!
+        cell.textLabel?.textColor = UIColor.brown
         cell.textLabel?.text = categoriesArray[indexPath.row]
         cell.textLabel?.font = UIFont(name: "Avenir", size: 15)
         cell.backgroundColor = .clear
@@ -54,40 +60,47 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let mainVC = storyboard.instantiateViewController(withIdentifier: "homeViewController") as! ViewController
         mainVC.categoryRecieved = categoriesArray[indexPath.row]
-        show(mainVC, sender: self)
+//        show(mainVC, sender: self)
+        
+        self.delegate?.clickItem(category: categoriesArray[indexPath.row])
+        
+        self.slideMenuController()?.closeLeft()
+        
+//        self.slideMenuController()?.changeMainViewController(mainVC, close: true)
+        
+        
+        
+        
         //     performSegue(withIdentifier: "home", sender: self)
         
-//        if(self.listener != nil){
-//            self.listener?.clickItem(category: categoriesArray[indexPath.row])
-//        }
+        //        if(self.listener != nil){
+        //            self.listener?.clickItem(category: categoriesArray[indexPath.row])
+        //        }
         
-//        self.slideMenuController()
+        //        self.slideMenuController()
         
         
     }
-//    Segue Recieved
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "home" {
-//            if let indexPath = self.table.indexPathForSelectedRow {
-//                let controller = segue.destination as! ViewController
-//                controller.categoryRecieved = categoriesArray[indexPath.row]
-//            }
-//        }
-//    }
+    //    Segue Recieved
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        if segue.identifier == "home" {
+    //            if let indexPath = self.table.indexPathForSelectedRow {
+    //                let controller = segue.destination as! ViewController
+    //                controller.categoryRecieved = categoriesArray[indexPath.row]
+    //            }
+    //        }
+    //    }
     
-//    func setListener(listener:ClickDelegate){
-//        self.listener = listener
-//    }
-
-
+    //    func setListener(listener:ClickDelegate){
+    //        self.listener = listener
+    //    }
+    
+    
 }
 
-protocol ClickDelegate {
-    func clickItem(category: String)
-}
 

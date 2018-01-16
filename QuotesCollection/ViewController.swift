@@ -20,8 +20,9 @@ class ViewController: UIViewController, iCarouselDelegate {
     
     //admob
     @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var titleLabel: UILabel!
     
-//    var bannerView: GADBannerView!
+    //    var bannerView: GADBannerView!
     
     var menuselect = ""
     var categoryRecieved:String = ""
@@ -36,9 +37,12 @@ class ViewController: UIViewController, iCarouselDelegate {
     @IBOutlet var viewCarousel: iCarousel!
     @IBOutlet weak var menu: UIButton!
     
-    var quotesImage = [UIImage]()
-    var quotes = [QuoteItem]()
-    var catWise=[Thoughts]()
+    var mytodayData : AnyObject?
+    
+    
+    //    var quotesImage = [UIImage]()
+    var quotes = [Thoughts]()
+    //    var catWise=[Thoughts]()
     
     //DID LOAD
     
@@ -47,10 +51,6 @@ class ViewController: UIViewController, iCarouselDelegate {
         downloadData()
         viewCarousel.type = .invertedWheel
         
-        // In this case, we instantiate the banner with desired ad size.
-//        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        
-//        addBannerViewToView(bannerView)
         
         bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         bannerView.rootViewController = self
@@ -60,45 +60,28 @@ class ViewController: UIViewController, iCarouselDelegate {
     }
     
     @IBAction func pressedHome(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        //        dismiss(animated: true, completion: nil)
+        
+        let randomValue = arc4random_uniform(11000)
+        
+        getURL_s(url: "https://www.forbes.com/forbesapi/thought/get.json?", param: ["limit":200,"meta":true,"start":randomValue, "stream":true])
+        
+        self.titleLabel.text = "TODAY"
+        
     }
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bannerView)
-        view.addConstraints(
-            [NSLayoutConstraint(item: bannerView,
-                                attribute: .bottom,
-                                relatedBy: .equal,
-                                toItem: bottomLayoutGuide,
-                                attribute: .top,
-                                multiplier: 1,
-                                constant: 0),
-             NSLayoutConstraint(item: bannerView,
-                                attribute: .centerX,
-                                relatedBy: .equal,
-                                toItem: view,
-                                attribute: .centerX,
-                                multiplier: 1,
-                                constant: 0)
-            ])
-    }
+    
     
     @IBAction func menu_pressed(_ sender: Any) {
         self.slideMenuController()?.openLeft()
-        dismiss(animated: true, completion: nil)
+        //        dismiss(animated: true, completion: nil)
         
-//        self.slideMenuController().
-        
-//        if categoryRecieved != ""{
-//            categoryRecieved = ""
-//        }
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
- 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -108,53 +91,53 @@ class ViewController: UIViewController, iCarouselDelegate {
     func getURL_s(url:String, param: [String:Any]){
         Alamofire.request(url, parameters: param).responseObject { (response: DataResponse<BaseClass>) in
             
-            self.catWise = (response.result.value!.thoughtStream?.thoughts)!
-            self.viewCarousel.reloadData()
+            self.quotes = (response.result.value!.thoughtStream?.thoughts)!
+            self.viewCarousel?.reloadData()
             
             print("now fetching data from query \(String(describing: response.result.value!.thoughtStream?.thoughts?.first?.quote))")
             
         }
     }
     
-    func getURL (url:String, param: [String:Any]){
-        Alamofire.request(url, parameters: param).responseObject { (response: DataResponse<QuoteItem>) in
-            
-            if(response.result.value?.thought?.thoughtAuthor?.image != nil){
-                
-                self.quotes.append(response.result.value!)
-                self.viewCarousel.reloadData()
-                
-                print("now fetching data from query \(String(describing: response.result.value!.thought?.quoteFragment))")
-                
-            }
-        }
-    }
+    //    func getURL (url:String, param: [String:Any]){
+    //        Alamofire.request(url, parameters: param).responseObject { (response: DataResponse<QuoteItem>) in
+    //
+    //            if(response.result.value?.thought?.thoughtAuthor?.image != nil){
+    //
+    //                self.quotes.append(response.result.value!)
+    //                self.viewCarousel?.reloadData()
+    //
+    //                print("now fetching data from query \(String(describing: response.result.value!.thought?.quoteFragment))")
+    //
+    //            }
+    //        }
+    //    }
     
     func downloadData(){
         
         if self.categoryRecieved == "" {
-            for _ in 0...100 {
-                let randomValue = arc4random_uniform(11000)
-                
-                getURL(url: "https://www.forbes.com/forbesapi/thought/uri.json", param: ["enrich": "false", "query": randomValue])
-                
-                        }// For loop Ending
+            //            for _ in 0...100 {
+            let randomValue = arc4random_uniform(11000)
+            
+            getURL_s(url: "https://www.forbes.com/forbesapi/thought/get.json?", param: ["limit":200,"meta":true,"start":randomValue, "stream":true])
+            
+            //                        }// For loop Ending
         } else {
-                let randomValue = arc4random_uniform(10)
-                
-                
-                getURL_s(url: "https://www.forbes.com/forbesapi/thought/get.json?", param: ["limit":200,"meta":true,"start":randomValue, "stream":true,"themeuri":"\(self.categoryRecieved.lowercased())"])
-                print("++++Else++")
-                
-                
+            
+            let randomValue = arc4random_uniform(10)
+            
+            getURL_s(url: "https://www.forbes.com/forbesapi/thought/get.json?", param: ["limit":200,"meta":true,"start":randomValue, "stream":true,"themeuri":"\(self.categoryRecieved.lowercased())"])
+            //                print("++++Else++")
             
         }
         
+        
+        
     }//Download data function Ended
     
-   
     
-  
+    
+    
     
 }//view Controller ended
 
@@ -163,13 +146,7 @@ class ViewController: UIViewController, iCarouselDelegate {
 extension ViewController:iCarouselDataSource{
     
     func numberOfItems(in carousel: iCarousel) -> Int {
-        if self.categoryRecieved == "" {
-            return self.quotes.count
-            
-        } else {
-            return self.catWise.count
-            
-        }
+        return self.quotes.count
     }
     
     
@@ -177,36 +154,33 @@ extension ViewController:iCarouselDataSource{
         
         let tempView = QuoteCard(frame: CGRect(x: 0, y: 0, width: 250, height: 350))
         
-        if self.categoryRecieved == "" {
-            tempView.setupCard(quote: (self.quotes[index].thought?.quote) ?? "Umer", author: (self.quotes[index].thought?.thoughtAuthor?.name)?.capitalized ?? "Umer", theme: (self.quotes[index].thought?.thoughtThemes?.first?.name)?.capitalized ?? "Umer")
-        } else {
-            tempView.setupCard(quote: (self.catWise[index].quote) ?? "Rafay", author: (self.catWise[index].thoughtAuthor?.name) ?? "Rafay", theme: (self.catWise[index].thoughtThemes?.first?.name) ?? "Rafay")
-        }
+        tempView.setupCard(quote: (self.quotes[index].quote) ?? "Rafay", author: (self.quotes[index].thoughtAuthor?.name) ?? "Rafay", theme: (self.quotes[index].thoughtThemes?.first?.name) ?? "Rafay")
+        
         
         //<<<<<<< HEAD
-        if quotes.count != 0 {
-                if(self.quotes[index].thought?.thoughtAuthor?.image != nil){
+        //        if quotes.count != 0 {
+        //                if(self.quotes[index].thought?.thoughtAuthor?.image != nil){
+        //
+        //                    let s = self.quotes[index].thought?.thoughtAuthor?.image ?? ""
+        //
+        //                    let url = URL(string: "https://i.forbesimg.com/media/lists/quotebank/\(s)_100x100.jpg")
+        //                    tempView.authorImage.kf.setImage(with: url)
+        //
+        //                    print("bhai ye nil nhi hain \((self.quotes[index].thought?.thoughtAuthor?.image ?? ""))")
+        //
+        //                    }
+        //        } else {
         
-                    let s = self.quotes[index].thought?.thoughtAuthor?.image ?? ""
-        
-                    let url = URL(string: "https://i.forbesimg.com/media/lists/quotebank/\(s)_100x100.jpg")
-                    tempView.authorImage.kf.setImage(with: url)
-        
-                    print("bhai ye nil nhi hain \((self.quotes[index].thought?.thoughtAuthor?.image ?? ""))")
-        
-                    }
-        } else {
+        if(self.quotes[index].thoughtAuthor?.image != nil){
             
-            if(self.catWise[index].thoughtAuthor?.image != nil){
-                
-                let s = self.catWise[index].thoughtAuthor?.image ?? ""
-                
-                let url = URL(string: "https://i.forbesimg.com/media/lists/quotebank/\(s)_100x100.jpg")
-                tempView.authorImage.kf.setImage(with: url)
-                
-            }
+            let s = self.quotes[index].thoughtAuthor?.image ?? ""
+            
+            let url = URL(string: "https://i.forbesimg.com/media/lists/quotebank/\(s)_100x100.jpg")
+            tempView.authorImage.kf.setImage(with: url)
             
         }
+        
+        
         //
         ////=======
         //
@@ -229,6 +203,18 @@ extension ViewController:iCarouselDataSource{
     
 }
 
+
+extension ViewController : MenuViewControllerDelegate {
+    
+    func clickItem(category: String) {
+        self.categoryRecieved = category
+        downloadData()
+        self.titleLabel.text = category.uppercased()
+//        for i in 0...category.count{
+////            category.
+//        }
+    }
+}
 
 
 //END OF VIEW CONTROLLER
