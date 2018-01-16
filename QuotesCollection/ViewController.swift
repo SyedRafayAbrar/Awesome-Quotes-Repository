@@ -46,8 +46,6 @@ class ViewController: UIViewController, iCarouselDelegate {
         super.viewDidLoad()
         downloadData()
         viewCarousel.type = .invertedWheel
-        currentLabel.text = categoryRecieved
-        print("******************\(categoryRecieved)")
         
         // In this case, we instantiate the banner with desired ad size.
 //        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
@@ -135,7 +133,7 @@ class ViewController: UIViewController, iCarouselDelegate {
     func downloadData(){
         
         if self.categoryRecieved == "" {
-            for _ in 0...40 {
+            for _ in 0...100 {
                 let randomValue = arc4random_uniform(11000)
                 
                 getURL(url: "https://www.forbes.com/forbesapi/thought/uri.json", param: ["enrich": "false", "query": randomValue])

@@ -13,16 +13,15 @@
 		0DEDB00E2007A75500C1031A /* ThoughtThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEDB00A2007A75500C1031A /* ThoughtThemes.swift */; };
 		0DEDB00F2007A75500C1031A /* Thought.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEDB00B2007A75500C1031A /* Thought.swift */; };
 		0DEDB0102007A75500C1031A /* QuoteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEDB00C2007A75500C1031A /* QuoteItem.swift */; };
-		2D0C3D932006062600DF4D91 /* QuotesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0C3D922006062600DF4D91 /* QuotesObject.swift */; };
 		2D79912120075A010092DB6C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D79912020075A010092DB6C /* Reachability.swift */; };
 		2D9AE7E62004B39400F5E479 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9AE7E52004B39400F5E479 /* iCarousel.m */; };
 		2DB9211120049CCE00CAF950 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB9211020049CCE00CAF950 /* AppDelegate.swift */; };
 		2DB9211320049CCE00CAF950 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB9211220049CCE00CAF950 /* ViewController.swift */; };
 		2DB9211620049CCE00CAF950 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DB9211420049CCE00CAF950 /* Main.storyboard */; };
-		2DB9211820049CCE00CAF950 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DB9211720049CCE00CAF950 /* Assets.xcassets */; };
 		2DB9211B20049CCE00CAF950 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DB9211920049CCE00CAF950 /* LaunchScreen.storyboard */; };
 		2DCB78D5200740F500458646 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCB78D4200740F500458646 /* MenuViewController.swift */; };
 		77A6377DCA74B4326A09872D /* Pods_QuotesCollection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0DEDBB10B9FF2662929292 /* Pods_QuotesCollection.framework */; };
+		C83D12FE200DE2D00041FB48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C83D12FD200DE2CF0041FB48 /* Assets.xcassets */; };
 		C88F8C06200C141200FFB83E /* ThoughtStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88F8C01200C140D00FFB83E /* ThoughtStream.swift */; };
 		C88F8C07200C141200FFB83E /* ThoughtAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88F8C02200C140F00FFB83E /* ThoughtAuth.swift */; };
 		C88F8C08200C141200FFB83E /* Thoughts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88F8C03200C140F00FFB83E /* Thoughts.swift */; };
@@ -38,7 +37,6 @@
 		0DEDB00B2007A75500C1031A /* Thought.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thought.swift; sourceTree = "<group>"; };
 		0DEDB00C2007A75500C1031A /* QuoteItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteItem.swift; sourceTree = "<group>"; };
 		0E0D4AA8E2D91B84295DA4B1 /* Pods-QuotesCollection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuotesCollection.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuotesCollection/Pods-QuotesCollection.debug.xcconfig"; sourceTree = "<group>"; };
-		2D0C3D922006062600DF4D91 /* QuotesObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotesObject.swift; sourceTree = "<group>"; };
 		2D79912020075A010092DB6C /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		2D9AE7E32004B39300F5E479 /* QuotesCollection-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuotesCollection-Bridging-Header.h"; sourceTree = "<group>"; };
 		2D9AE7E42004B39400F5E479 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
@@ -47,12 +45,12 @@
 		2DB9211020049CCE00CAF950 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DB9211220049CCE00CAF950 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2DB9211520049CCE00CAF950 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2DB9211720049CCE00CAF950 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DB9211A20049CCE00CAF950 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DB9211C20049CCE00CAF950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DCB78D4200740F500458646 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4F0DEDBB10B9FF2662929292 /* Pods_QuotesCollection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuotesCollection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DE995D277B78487519E77C /* Pods-QuotesCollection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuotesCollection.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuotesCollection/Pods-QuotesCollection.release.xcconfig"; sourceTree = "<group>"; };
+		C83D12FD200DE2CF0041FB48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C88F8C01200C140D00FFB83E /* ThoughtStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThoughtStream.swift; sourceTree = "<group>"; };
 		C88F8C02200C140F00FFB83E /* ThoughtAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThoughtAuth.swift; sourceTree = "<group>"; };
 		C88F8C03200C140F00FFB83E /* Thoughts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thoughts.swift; sourceTree = "<group>"; };
@@ -96,6 +94,9 @@
 			isa = PBXGroup;
 			children = (
 				2DB9210F20049CCE00CAF950 /* QuotesCollection */,
+				0DEDB0062007A4E500C1031A /* QuoteCard */,
+				0DEDB0112007A75A00C1031A /* Models */,
+				C8047F66200BF09B0077C68E /* Model2 */,
 				2DB9210E20049CCE00CAF950 /* Products */,
 				6FB24401C24C572238DF56BC /* Pods */,
 				3E511CE2E6654A4C9A44B602 /* Frameworks */,
@@ -113,18 +114,14 @@
 		2DB9210F20049CCE00CAF950 /* QuotesCollection */ = {
 			isa = PBXGroup;
 			children = (
-				C8047F66200BF09B0077C68E /* Model2 */,
-				0DEDB0112007A75A00C1031A /* Models */,
+				C83D12FD200DE2CF0041FB48 /* Assets.xcassets */,
 				2D9AE7E42004B39400F5E479 /* iCarousel.h */,
 				2D9AE7E52004B39400F5E479 /* iCarousel.m */,
 				2DB9211020049CCE00CAF950 /* AppDelegate.swift */,
 				2DB9211220049CCE00CAF950 /* ViewController.swift */,
-				2D0C3D922006062600DF4D91 /* QuotesObject.swift */,
 				2DB9211420049CCE00CAF950 /* Main.storyboard */,
-				0DEDB0062007A4E500C1031A /* QuoteCard */,
 				2D79912020075A010092DB6C /* Reachability.swift */,
 				2DCB78D4200740F500458646 /* MenuViewController.swift */,
-				2DB9211720049CCE00CAF950 /* Assets.xcassets */,
 				2DB9211920049CCE00CAF950 /* LaunchScreen.storyboard */,
 				2DB9211C20049CCE00CAF950 /* Info.plist */,
 				2D9AE7E32004B39300F5E479 /* QuotesCollection-Bridging-Header.h */,
@@ -226,8 +223,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DB9211B20049CCE00CAF950 /* LaunchScreen.storyboard in Resources */,
-				2DB9211820049CCE00CAF950 /* Assets.xcassets in Resources */,
 				0D0617D82007852100261C07 /* QuoteCard.xib in Resources */,
+				C83D12FE200DE2D00041FB48 /* Assets.xcassets in Resources */,
 				2DB9211620049CCE00CAF950 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,7 +305,6 @@
 				C88F8C07200C141200FFB83E /* ThoughtAuth.swift in Sources */,
 				2D9AE7E62004B39400F5E479 /* iCarousel.m in Sources */,
 				2DCB78D5200740F500458646 /* MenuViewController.swift in Sources */,
-				2D0C3D932006062600DF4D91 /* QuotesObject.swift in Sources */,
 				0DEDB00D2007A75500C1031A /* ThoughtAuthor.swift in Sources */,
 				C88F8C09200C141200FFB83E /* BaseClass.swift in Sources */,
 				2DB9211320049CCE00CAF950 /* ViewController.swift in Sources */,

@@ -16,12 +16,13 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var text:String = ""
     
-    var categoriesArray = ["Self","Best","Emotions","Life","Justice","Wealth","Laughter","Anger","Art","Executives","Power","Education","Wisdom","Greatness","Gender","Criticism","Courage","Blessings","Trust","Tragedy","Sorrow"]
+    var categoriesArray = ["Self","Best","Emotions","Life","Justice","Wealth","Laughter","Anger","Art","Executives","Power","Education","Wisdom","Greatness","Busy","Criticism","Courage","Blessings","Trust","Tragedy","Sorrow","War","Action","Aging","Man","Politics","Ability","Virtue","Goals","Riches","Achievements","Pleasure","Animals","Mistakes","Money","Women","Peace","Religion"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        table.backgroundColor = .clear
+        self.categoriesArray.sort()
+        table.backgroundColor = UIColor.clear
         table.backgroundView = nil
+        table.separatorStyle = .singleLineEtched
         // Do any additional setup after loading the view.
     }
     
@@ -45,6 +46,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "Cell") as! UITableViewCell
+       cell.textLabel?.textColor = UIColor.brown
         cell.textLabel?.text = categoriesArray[indexPath.row]
         cell.textLabel?.font = UIFont(name: "Avenir", size: 15)
         cell.backgroundColor = .clear
@@ -81,7 +83,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
 //    func setListener(listener:ClickDelegate){
 //        self.listener = listener
 //    }
-   
+
+
 }
 
 protocol ClickDelegate {
