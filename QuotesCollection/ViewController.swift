@@ -27,7 +27,7 @@ class ViewController: UIViewController, iCarouselDelegate {
     var menuselect = ""
     var categoryRecieved:String = ""
     var catQuoteObj = [QuoteCard]()
-    
+    var hasAlreadyLaunchedThisController = false
     weak var delegate:MenuViewController!
     
     @IBOutlet weak var currentLabel: UILabel!
@@ -37,7 +37,7 @@ class ViewController: UIViewController, iCarouselDelegate {
     @IBOutlet var viewCarousel: iCarousel!
     @IBOutlet weak var menu: UIButton!
     
-    var mytodayData : AnyObject?
+    var mytodayData : [Thoughts]?
     
     
     //    var quotesImage = [UIImage]()
@@ -50,24 +50,31 @@ class ViewController: UIViewController, iCarouselDelegate {
         super.viewDidLoad()
         downloadData()
         viewCarousel.type = .invertedWheel
+        viewCarousel.isPagingEnabled = true
         
-        
+//        ca-app-pub-8459509244834954/4751246966
         bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         
+        
+        let randomValue = arc4random_uniform(11000)
+        
+        getURL_s(url: "https://www.forbes.com/forbesapi/thought/get.json?", param: ["limit":200,"meta":true,"start":randomValue, "stream":true])
         
     }
     
     @IBAction func pressedHome(_ sender: Any) {
         //        dismiss(animated: true, completion: nil)
         
-        let randomValue = arc4random_uniform(11000)
-        
-        getURL_s(url: "https://www.forbes.com/forbesapi/thought/get.json?", param: ["limit":200,"meta":true,"start":randomValue, "stream":true])
+//        let randomValue = arc4random_uniform(11000)
+//
+//        getURL_s(url: "https://www.forbes.com/forbesapi/thought/get.json?", param: ["limit":200,"meta":true,"start":randomValue, "stream":true])
         
         self.titleLabel.text = "TODAY"
         
+        self.quotes = mytodayData!
+        viewCarousel.reloadData()
     }
     
     
@@ -80,6 +87,8 @@ class ViewController: UIViewController, iCarouselDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -93,6 +102,10 @@ class ViewController: UIViewController, iCarouselDelegate {
             
             self.quotes = (response.result.value!.thoughtStream?.thoughts)!
             self.viewCarousel?.reloadData()
+            if !self.hasAlreadyLaunchedThisController {
+                self.hasAlreadyLaunchedThisController = true
+                self.mytodayData = self.quotes
+            }
             
             print("now fetching data from query \(String(describing: response.result.value!.thoughtStream?.thoughts?.first?.quote))")
             
@@ -115,21 +128,23 @@ class ViewController: UIViewController, iCarouselDelegate {
     
     func downloadData(){
         
-        if self.categoryRecieved == "" {
-            //            for _ in 0...100 {
-            let randomValue = arc4random_uniform(11000)
-            
-            getURL_s(url: "https://www.forbes.com/forbesapi/thought/get.json?", param: ["limit":200,"meta":true,"start":randomValue, "stream":true])
-            
-            //                        }// For loop Ending
-        } else {
-            
+//        if self.categoryRecieved == "" {
+//            //            for _ in 0...100 {
+//            let randomValue = arc4random_uniform(11000)
+//
+//            getURL_s(url: "https://www.forbes.com/forbesapi/thought/get.json?", param: ["limit":200,"meta":true,"start":randomValue, "stream":true])
+//
+////            self.mytodayData = quotes
+//
+//            //                        }// For loop Ending
+//        } else {
+        
             let randomValue = arc4random_uniform(10)
             
             getURL_s(url: "https://www.forbes.com/forbesapi/thought/get.json?", param: ["limit":200,"meta":true,"start":randomValue, "stream":true,"themeuri":"\(self.categoryRecieved.lowercased())"])
             //                print("++++Else++")
             
-        }
+//        }
         
         
         
