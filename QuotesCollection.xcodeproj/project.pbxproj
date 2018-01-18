@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D0617D62007850D00261C07 /* QuoteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0617D52007850D00261C07 /* QuoteCard.swift */; };
 		0D0617D82007852100261C07 /* QuoteCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D0617D72007852100261C07 /* QuoteCard.xib */; };
+		0D4B3BEE200FA8E9005B3C05 /* ExpendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B3BED200FA8E9005B3C05 /* ExpendViewController.swift */; };
 		0DEDB00D2007A75500C1031A /* ThoughtAuthor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEDB0092007A75400C1031A /* ThoughtAuthor.swift */; };
 		0DEDB00E2007A75500C1031A /* ThoughtThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEDB00A2007A75500C1031A /* ThoughtThemes.swift */; };
 		0DEDB00F2007A75500C1031A /* Thought.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEDB00B2007A75500C1031A /* Thought.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		0D0617D52007850D00261C07 /* QuoteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCard.swift; sourceTree = "<group>"; };
 		0D0617D72007852100261C07 /* QuoteCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteCard.xib; sourceTree = "<group>"; };
+		0D4B3BED200FA8E9005B3C05 /* ExpendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpendViewController.swift; sourceTree = "<group>"; };
 		0DEDB0092007A75400C1031A /* ThoughtAuthor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThoughtAuthor.swift; sourceTree = "<group>"; };
 		0DEDB00A2007A75500C1031A /* ThoughtThemes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThoughtThemes.swift; sourceTree = "<group>"; };
 		0DEDB00B2007A75500C1031A /* Thought.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thought.swift; sourceTree = "<group>"; };
@@ -94,9 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				2DB9210F20049CCE00CAF950 /* QuotesCollection */,
-				0DEDB0062007A4E500C1031A /* QuoteCard */,
 				0DEDB0112007A75A00C1031A /* Models */,
-				C8047F66200BF09B0077C68E /* Model2 */,
 				2DB9210E20049CCE00CAF950 /* Products */,
 				6FB24401C24C572238DF56BC /* Pods */,
 				3E511CE2E6654A4C9A44B602 /* Frameworks */,
@@ -114,6 +114,8 @@
 		2DB9210F20049CCE00CAF950 /* QuotesCollection */ = {
 			isa = PBXGroup;
 			children = (
+				C8047F66200BF09B0077C68E /* Model2 */,
+				0DEDB0062007A4E500C1031A /* QuoteCard */,
 				C83D12FD200DE2CF0041FB48 /* Assets.xcassets */,
 				2D9AE7E42004B39400F5E479 /* iCarousel.h */,
 				2D9AE7E52004B39400F5E479 /* iCarousel.m */,
@@ -125,6 +127,7 @@
 				2DB9211920049CCE00CAF950 /* LaunchScreen.storyboard */,
 				2DB9211C20049CCE00CAF950 /* Info.plist */,
 				2D9AE7E32004B39300F5E479 /* QuotesCollection-Bridging-Header.h */,
+				0D4B3BED200FA8E9005B3C05 /* ExpendViewController.swift */,
 			);
 			path = QuotesCollection;
 			sourceTree = "<group>";
@@ -189,11 +192,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0920;
-				ORGANIZATIONNAME = "Syed Rafay";
+				ORGANIZATIONNAME = z;
 				TargetAttributes = {
 					2DB9210C20049CCE00CAF950 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 78T6UPLU6S;
+						DevelopmentTeam = 45BCUJX35Z;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
@@ -308,6 +311,7 @@
 				0DEDB00D2007A75500C1031A /* ThoughtAuthor.swift in Sources */,
 				C88F8C09200C141200FFB83E /* BaseClass.swift in Sources */,
 				2DB9211320049CCE00CAF950 /* ViewController.swift in Sources */,
+				0D4B3BEE200FA8E9005B3C05 /* ExpendViewController.swift in Sources */,
 				C88F8C06200C141200FFB83E /* ThoughtStream.swift in Sources */,
 				0D0617D62007850D00261C07 /* QuoteCard.swift in Sources */,
 				0DEDB0102007A75500C1031A /* QuoteItem.swift in Sources */,
@@ -453,7 +457,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 78T6UPLU6S;
+				DEVELOPMENT_TEAM = 45BCUJX35Z;
 				INFOPLIST_FILE = QuotesCollection/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafay.QuotesCollection;
@@ -471,7 +475,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 78T6UPLU6S;
+				DEVELOPMENT_TEAM = 45BCUJX35Z;
 				INFOPLIST_FILE = QuotesCollection/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafay.QuotesCollection;

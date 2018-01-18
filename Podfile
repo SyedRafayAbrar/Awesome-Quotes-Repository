@@ -11,6 +11,8 @@ pod 'AlamofireObjectMapper', '~> 5.0'
 pod 'Kingfisher', '~> 4.0'
 pod 'SwiftyJSON'
 pod 'Google-Mobile-Ads-SDK'
+#pod "MCMHeaderAnimated"
+pod 'PullToDismiss', '~> 2.1'
 
 
   # Pods for QuotesCollection
