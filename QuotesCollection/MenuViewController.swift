@@ -26,6 +26,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         self.categoriesArray.sort()
+        table.separatorColor = UIColor.clear
         table.backgroundColor = UIColor.clear
         table.backgroundView = nil
         table.separatorStyle = .singleLineEtched
@@ -51,14 +52,19 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = table.dequeueReusableCell(withIdentifier: "Cell")!
-        cell.textLabel?.textColor = UIColor(hex: "6EB79B")
-        cell.textLabel?.text = categoriesArray[indexPath.row]
-        cell.textLabel?.font = UIFont(name: "Avenir", size: 15)
-        cell.backgroundColor = .clear
-        return cell
+        let tempCell = Bundle.main.loadNibNamed("categoryTableViewCell", owner: self, options: nil)?.first as! categoryTableViewCell
+        
+        tempCell.categoryLabel.textColor = UIColor(hex: "6EB79B")
+        tempCell.categoryLabel.text = categoriesArray[indexPath.row]
+        tempCell.categoryLabel.font = UIFont(name: "Avenir", size: 15)
+        tempCell.backgroundColor = .clear
+        return tempCell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+        
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
@@ -85,6 +91,10 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         //        self.slideMenuController()
         
         
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell,
+                   forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
     }
     //    Segue Recieved
     //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -168,12 +168,7 @@ extension ViewController : iCarouselDelegate{
     func carousel(_ carousel: iCarousel, didSelectItemAt index: Int) {
         print(" number of card \(index) ")
         
-//        let expendMenu = UIStoryboard(name: "Main", bundle:nil).instantiateViewController(withIdentifier: "expendViewController") as! ExpendViewController
-//        self.addChildViewController(expendMenu)
-//        expendMenu.view.frame = self.view.frame
-//        self.view.addSubview(expendMenu.view)
-//        expendMenu.didMove(toParentViewController: self)
-        
+
         performSegue(withIdentifier: "detail", sender: nil)
         selectedRow = index
         

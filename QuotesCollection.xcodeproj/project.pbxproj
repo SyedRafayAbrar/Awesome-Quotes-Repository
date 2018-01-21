@@ -22,6 +22,8 @@
 		2DB9211B20049CCE00CAF950 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DB9211920049CCE00CAF950 /* LaunchScreen.storyboard */; };
 		2DCB78D5200740F500458646 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCB78D4200740F500458646 /* MenuViewController.swift */; };
 		77A6377DCA74B4326A09872D /* Pods_QuotesCollection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0DEDBB10B9FF2662929292 /* Pods_QuotesCollection.framework */; };
+		C80BA0EE201495EA0008DBF5 /* categoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80BA0EC201495EA0008DBF5 /* categoryTableViewCell.swift */; };
+		C80BA0EF201495EA0008DBF5 /* categoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C80BA0ED201495EA0008DBF5 /* categoryTableViewCell.xib */; };
 		C83D12FE200DE2D00041FB48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C83D12FD200DE2CF0041FB48 /* Assets.xcassets */; };
 		C88F8C06200C141200FFB83E /* ThoughtStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88F8C01200C140D00FFB83E /* ThoughtStream.swift */; };
 		C88F8C07200C141200FFB83E /* ThoughtAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88F8C02200C140F00FFB83E /* ThoughtAuth.swift */; };
@@ -52,6 +54,8 @@
 		2DCB78D4200740F500458646 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4F0DEDBB10B9FF2662929292 /* Pods_QuotesCollection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuotesCollection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DE995D277B78487519E77C /* Pods-QuotesCollection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuotesCollection.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuotesCollection/Pods-QuotesCollection.release.xcconfig"; sourceTree = "<group>"; };
+		C80BA0EC201495EA0008DBF5 /* categoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categoryTableViewCell.swift; sourceTree = "<group>"; };
+		C80BA0ED201495EA0008DBF5 /* categoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = categoryTableViewCell.xib; sourceTree = "<group>"; };
 		C83D12FD200DE2CF0041FB48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C88F8C01200C140D00FFB83E /* ThoughtStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThoughtStream.swift; sourceTree = "<group>"; };
 		C88F8C02200C140F00FFB83E /* ThoughtAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThoughtAuth.swift; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 				2DB9211420049CCE00CAF950 /* Main.storyboard */,
 				2D79912020075A010092DB6C /* Reachability.swift */,
 				2DCB78D4200740F500458646 /* MenuViewController.swift */,
+				C80BA0EC201495EA0008DBF5 /* categoryTableViewCell.swift */,
+				C80BA0ED201495EA0008DBF5 /* categoryTableViewCell.xib */,
 				2DB9211920049CCE00CAF950 /* LaunchScreen.storyboard */,
 				2DB9211C20049CCE00CAF950 /* Info.plist */,
 				2D9AE7E32004B39300F5E479 /* QuotesCollection-Bridging-Header.h */,
@@ -196,7 +202,7 @@
 				TargetAttributes = {
 					2DB9210C20049CCE00CAF950 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 45BCUJX35Z;
+						DevelopmentTeam = 78T6UPLU6S;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
@@ -226,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DB9211B20049CCE00CAF950 /* LaunchScreen.storyboard in Resources */,
+				C80BA0EF201495EA0008DBF5 /* categoryTableViewCell.xib in Resources */,
 				0D0617D82007852100261C07 /* QuoteCard.xib in Resources */,
 				C83D12FE200DE2D00041FB48 /* Assets.xcassets in Resources */,
 				2DB9211620049CCE00CAF950 /* Main.storyboard in Resources */,
@@ -312,6 +319,7 @@
 				C88F8C09200C141200FFB83E /* BaseClass.swift in Sources */,
 				2DB9211320049CCE00CAF950 /* ViewController.swift in Sources */,
 				0D4B3BEE200FA8E9005B3C05 /* ExpendViewController.swift in Sources */,
+				C80BA0EE201495EA0008DBF5 /* categoryTableViewCell.swift in Sources */,
 				C88F8C06200C141200FFB83E /* ThoughtStream.swift in Sources */,
 				0D0617D62007850D00261C07 /* QuoteCard.swift in Sources */,
 				0DEDB0102007A75500C1031A /* QuoteItem.swift in Sources */,
@@ -457,7 +465,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 45BCUJX35Z;
+				DEVELOPMENT_TEAM = 78T6UPLU6S;
 				INFOPLIST_FILE = QuotesCollection/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafay.QuotesCollection;
@@ -475,7 +483,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 45BCUJX35Z;
+				DEVELOPMENT_TEAM = 78T6UPLU6S;
 				INFOPLIST_FILE = QuotesCollection/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafay.QuotesCollection;
