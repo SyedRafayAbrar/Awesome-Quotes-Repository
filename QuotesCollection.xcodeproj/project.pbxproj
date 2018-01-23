@@ -467,8 +467,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 78T6UPLU6S;
 				INFOPLIST_FILE = QuotesCollection/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rafay.QuotesCollection;
+				PRODUCT_BUNDLE_IDENTIFIER = com.new.quotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "QuotesCollection/QuotesCollection-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -485,8 +486,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 78T6UPLU6S;
 				INFOPLIST_FILE = QuotesCollection/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rafay.QuotesCollection;
+				PRODUCT_BUNDLE_IDENTIFIER = com.new.quotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "QuotesCollection/QuotesCollection-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
